@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="10">
+ <tileset firstgid="1" name="tileset_gutter" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924" columns="33">
+  <image source="tileset_gutter.png" width="594" height="504"/>
+ </tileset>
+ <layer name="Background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1UkSgCAMRFFKTu+tvQAldMCQ4F/0yjA8KmAtpVQSLvelpTduZm7LPnDkcVi/teZf2dM4/B2jRk/HzDnjwJHFodxVHL59pcyPA8dbTS84cvfVyHu3wosDBw6tRn3DvBzqe4UjlsNyR0b3oJwBjm8ds2vgwIEDxwmOVp3iV+pOcVj/iThy9lVrjHVNHDhw+AbH/r3/wUFi5AFp/ooK
+  </data>
+ </layer>
+ <objectgroup name="wall">
+  <object id="1" x="121" y="576" width="136" height="75"/>
+  <object id="3" x="0" y="1" width="30" height="317"/>
+  <object id="4" x="1" y="402" width="29" height="396"/>
+  <object id="5" x="29" y="771" width="769" height="27"/>
+  <object id="6" x="769" y="1" width="31" height="769"/>
+  <object id="7" x="30" y="1" width="738" height="32"/>
+ </objectgroup>
+</map>
