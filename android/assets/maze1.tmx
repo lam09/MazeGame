@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="10">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="33">
  <tileset firstgid="1" name="tileset_gutter" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924" columns="33">
   <image source="tileset_gutter.png" width="594" height="504"/>
  </tileset>
+ <tileset firstgid="925" name="title1" tilewidth="24" tileheight="24" tilecount="200" columns="10">
+  <image source="title1.png" width="241" height="482"/>
+ </tileset>
+ <tileset firstgid="1125" name="title2" tilewidth="24" tileheight="24" tilecount="190" columns="10">
+  <image source="title2.png" width="241" height="479"/>
+ </tileset>
  <layer name="Background" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1UkSgCAMRFFKTu+tvQAldMCQ4F/0yjA8KmAtpVQSLvelpTduZm7LPnDkcVi/teZf2dM4/B2jRk/HzDnjwJHFodxVHL59pcyPA8dbTS84cvfVyHu3wosDBw6tRn3DvBzqe4UjlsNyR0b3oJwBjm8ds2vgwIEDxwmOVp3iV+pOcVj/iThy9lVrjHVNHDhw+AbH/r3/wUFi5AFp/ooK
+   eJztmNsNwjAMRcMsHYR5uv8CfCGiyI/rV5OgIFlCrRP7xNcu5WqtXQvaDZrVv9rQfBA/z3lkMWTyztZSlg5n55LN8X7h9Z2hQVRX2RzRmRTh0Fh25NB6KVs73/iUIXE5XVVzZPS2lld/BlSNZnFIe92ET4SjQnvcfpcSczcOzmc3jqfqMc6ciB0OnEOa9dkMszjQHrCs83JIZnn2Hg7b2t04bmZdnw+6D8Lh7WePUflkzpfoutU4uPp7OMbf+RSHtZaHw8/R33+ag3tvQznG7/2+1LtkpNcsHKOPxCHlVsHBvfMjHFJs7b6FQ/pfgOq7Jzmk/rDOXC0fioPrLw/HuF8Vh2VOSBxcLIQD1RWiGU4HUQ5PDp55hXJQ19B6WHOo5hj1MZtDs5XqIfUH11ercFieJdJMQDlaAYdl/nIm/Zcxcnw//8Lh7V3NF82ZWkNxcHs35T7KkTUPOA5PbEvMCjscv+srcFh5x3wzZsxMk2oy61wjmqBqU5WvpF+UQ9KV1kOWc/ToIYsDqUc0Zy1Hi64onw/Mx9NB
   </data>
  </layer>
  <objectgroup name="wall">
-  <object id="1" x="121" y="576" width="136" height="75"/>
-  <object id="3" x="0" y="1" width="30" height="317"/>
-  <object id="4" x="1" y="402" width="29" height="396"/>
-  <object id="5" x="29" y="771" width="769" height="27"/>
-  <object id="6" x="769" y="1" width="31" height="769"/>
-  <object id="7" x="30" y="1" width="738" height="32"/>
+  <object id="3" x="54" y="31" width="30" height="317"/>
+  <object id="4" x="49" y="414" width="29" height="396"/>
+  <object id="5" x="7" y="716" width="769" height="27"/>
+  <object id="6" x="709" y="17" width="31" height="209"/>
+  <object id="7" x="26" y="45" width="738" height="32"/>
+  <object id="10" x="709" y="358" width="32" height="382"/>
+  <object id="11" x="142" y="134" width="30" height="400"/>
+  <object id="12" x="228" y="82" width="42" height="202"/>
+  <object id="13" x="172" y="354" width="194" height="36"/>
+  <object id="16" x="216" y="432" width="32" height="238"/>
+  <object id="17" x="252" y="478" width="188" height="38"/>
+  <object id="18" x="312" y="606" width="228" height="34"/>
+  <object id="19" x="364" y="182" width="52" height="258"/>
+  <object id="20" x="534" y="144" width="178" height="36"/>
+  <object id="21" x="464" y="234" width="274" height="34"/>
+  <object id="22" x="482" y="372" width="44" height="184"/>
+  <object id="23" x="478" y="332" width="104" height="36"/>
+  <object id="24" x="590" y="268" width="42" height="156"/>
+  <object id="25" x="544" y="606" width="36" height="109"/>
+  <object id="26" x="632" y="426" width="32" height="226"/>
+  <object id="27" x="404" y="104" width="80" height="32"/>
+  <object id="28" x="1" y="332" width="50" height="13"/>
+  <object id="29" x="1" y="345" width="13" height="71"/>
+  <object id="30" x="13" y="416" width="62" height="17"/>
+ </objectgroup>
+ <objectgroup name="start">
+  <object id="32" x="46" y="364" width="31" height="34"/>
  </objectgroup>
 </map>

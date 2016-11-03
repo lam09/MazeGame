@@ -4,6 +4,7 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -28,7 +29,7 @@ public class B2WorldCreator {
         Body body;
 
         //create ground bodies/fixtures
-        for(MapObject object : map.getLayers().get(1).getObjects().getByType(RectangleMapObject.class)){
+        for(MapObject object : map.getLayers().get("wall").getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
@@ -38,10 +39,11 @@ public class B2WorldCreator {
 
             shape.setAsBox(rect.getWidth() / 2 / MazeGame.PPM, rect.getHeight() / 2 / MazeGame.PPM);
             fdef.shape = shape;
-            fdef.restitution = 0.01f;
+            //fdef.restitution = 0.01f;
             body.createFixture(fdef);
         }
-
+       Rectangle start=((RectangleMapObject) map.getLayers().get("start").getObjects().getByType(RectangleMapObject.class).get(0)).getRectangle();
+        screen.startPosition = new Vector2(start.getX()/MazeGame.PPM,start.getY()/MazeGame.PPM);
     }
 
 }

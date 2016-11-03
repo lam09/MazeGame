@@ -5,7 +5,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -34,13 +33,14 @@ public class PlayScreen  implements Screen {
     private B2WorldCreator creator;
 
     private Player player;
+    public Vector2 startPosition;
 
     public PlayScreen(MazeGame game){
         System.out.print("Starting playing screen......");
         this.game = game;
         gamecam = new OrthographicCamera();
         //create a FitViewport to maintain virtual aspect ratio despite screen size
-        gamePort = new FitViewport(500/ MazeGame.PPM,500/ MazeGame.PPM, gamecam);
+        gamePort = new FitViewport(800/ MazeGame.PPM,500/ MazeGame.PPM, gamecam);
 
         map = MazeGame.manager.get("maze1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1  / MazeGame.PPM);

@@ -39,8 +39,8 @@ public class Player extends Sprite {
         //initialize default values
         this.screen = screen;
         this.world = screen.getWorld();
-        definePlayer(new Vector2(5,5));
-        setBounds(0, 0, 64 / MazeGame.PPM, 64 / MazeGame.PPM);
+        definePlayer(screen.startPosition);
+        setBounds(0, 0, 48 / MazeGame.PPM, 48 / MazeGame.PPM);
         velocity = new Vector2(50,50);
         speed = MovingSpeed.WALKING;
 
@@ -164,7 +164,7 @@ public class Player extends Sprite {
         else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) goDown();
         else velocity = new Vector2(0,0);
         b2body.setLinearVelocity(velocity);
-        setPosition(b2body.getPosition().x - 32 / MazeGame.PPM,b2body.getPosition().y-32 / MazeGame.PPM);
+        setPosition(b2body.getPosition().x - 24 / MazeGame.PPM,b2body.getPosition().y-24 / MazeGame.PPM);
         setRegion(getFrame(dt));
     }
     private void goUp()
