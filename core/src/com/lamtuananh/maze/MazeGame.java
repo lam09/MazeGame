@@ -29,7 +29,7 @@ public class MazeGame extends Game {
 		img = new Texture("badlogic.jpg");
 		manager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
 		manager.load("maze1.tmx", TiledMap.class);
-		manager.load("tortoise/goDown.png", Texture.class);
+		manager.load("tortoise/goDown3.png", Texture.class);
 		manager.load("tortoise/goLeft.png", Texture.class);
 		manager.load("tortoise/goRight.png", Texture.class);
 		manager.load("tortoise/goUp.png", Texture.class);

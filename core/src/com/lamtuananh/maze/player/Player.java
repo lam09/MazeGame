@@ -34,24 +34,60 @@ public class Player extends Sprite {
 
     Animation goLeft,goRight,goUp,goDown;
     private float stateTimer;
-    TextureRegion playerStand;
+    TextureRegion playerStand,playerStandLeft,playerStandRight,playerStandUp,playerStandDown;
     public Player(PlayScreen screen) {
         //initialize default values
         this.screen = screen;
         this.world = screen.getWorld();
         definePlayer(new Vector2(5,5));
-        setBounds(0, 0, 16 / MazeGame.PPM, 16 / MazeGame.PPM);
+        setBounds(0, 0, 64 / MazeGame.PPM, 64 / MazeGame.PPM);
         velocity = new Vector2(50,50);
         speed = MovingSpeed.WALKING;
 
         Texture goLeftTexture = MazeGame.manager.get("tortoise/goLeft.png", Texture.class);
 
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i=0;i<4;i++)
-            frames.add(new TextureRegion(goLeftTexture,i*46.5f,49,46.5f,49));
-        goLeft = new Animation(0.1f,frames);
-         playerStand = new TextureRegion(goLeftTexture, 0, 49, 46.5f, 49);
-        setRegion(frames.get(0));
+        frames.add(new TextureRegion(goLeftTexture,0,0,35,49));
+        frames.add(new TextureRegion(goLeftTexture,45,0,35,49));
+        frames.add(new TextureRegion(goLeftTexture,94,0,35,49));
+        frames.add(new TextureRegion(goLeftTexture,142,0,35,49));
+        goLeft = new Animation(0.2f,frames);
+        goLeft.setPlayMode(Animation.PlayMode.LOOP_REVERSED);
+
+        Texture goDownTexture = MazeGame.manager.get("tortoise/goDown3.png", Texture.class);
+        Array<TextureRegion> frames1 = new Array<TextureRegion>();
+        frames1.add(new TextureRegion(goDownTexture,0,0,40,49));
+        frames1.add(new TextureRegion(goDownTexture,47,0,40,49));
+        frames1.add(new TextureRegion(goDownTexture,95,0,40,49));
+        frames1.add(new TextureRegion(goDownTexture,145,0,40,49));
+        goDown = new Animation(0.2f,frames1);
+        goDown.setPlayMode(Animation.PlayMode.LOOP_REVERSED);
+
+        Texture goRightTexture = MazeGame.manager.get("tortoise/goRight.png", Texture.class);
+        Array<TextureRegion> frames2 = new Array<TextureRegion>();
+        frames2.add(new TextureRegion(goRightTexture,0,0,37,49));
+        frames2.add(new TextureRegion(goRightTexture,47,0,37,49));
+        frames2.add(new TextureRegion(goRightTexture,96,0,37,49));
+        frames2.add(new TextureRegion(goRightTexture,144,0,37,49));
+        goRight = new Animation(0.2f,frames2);
+        goRight.setPlayMode(Animation.PlayMode.LOOP_REVERSED);
+
+        Texture goUpTexture = MazeGame.manager.get("tortoise/goUp.png", Texture.class);
+        Array<TextureRegion> frames3 = new Array<TextureRegion>();
+        frames3.add(new TextureRegion(goUpTexture,0,0,40,49));
+        frames3.add(new TextureRegion(goUpTexture,46,0,40,49));
+        frames3.add(new TextureRegion(goUpTexture,94,0,40,49));
+        frames3.add(new TextureRegion(goUpTexture,146,0,40,49));
+        goUp = new Animation(0.2f,frames3);
+        goUp.setPlayMode(Animation.PlayMode.LOOP_REVERSED);
+
+        playerStand = new TextureRegion(goLeftTexture, 0, 0, 35, 49);
+        playerStandLeft= new TextureRegion(goLeftTexture, 0, 0, 35, 49);
+        playerStandRight= new TextureRegion(goRightTexture, 0,0,37,49);
+        playerStandUp= new TextureRegion(goUpTexture, 0,0,40,49);
+        playerStandDown= new TextureRegion(goDownTexture, 0,0,40,49);
+
+        setRegion(playerStand);
     }
     public TextureRegion getFrame(float dt){
         currentState=getState();
@@ -61,10 +97,13 @@ public class Player extends Sprite {
                 region=goLeft.getKeyFrame(stateTimer);
                 break;
             case GORIGHT:
+                region=goRight.getKeyFrame(stateTimer);
                 break;
             case GOUP:
+                region=goUp.getKeyFrame(stateTimer);
                 break;
             case GODOWN:
+                region=goDown.getKeyFrame(stateTimer);
                 break;
             default:
                 region = playerStand;
@@ -73,6 +112,10 @@ public class Player extends Sprite {
 
         stateTimer=currentState==previousState? stateTimer+dt:0;
         previousState = currentState;
+        if(previousState == State.GODOWN) playerStand = playerStandDown;
+        else  if(previousState == State.GOLEFT) playerStand = playerStandLeft;
+        else  if(previousState == State.GORIGHT) playerStand = playerStandRight;
+        else if(previousState == State.GOUP) playerStand = playerStandUp;
         return region;
     }
     public State getState(){
@@ -121,7 +164,7 @@ public class Player extends Sprite {
         else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) goDown();
         else velocity = new Vector2(0,0);
         b2body.setLinearVelocity(velocity);
-        setPosition(b2body.getPosition().x,b2body.getPosition().y);
+        setPosition(b2body.getPosition().x - 32 / MazeGame.PPM,b2body.getPosition().y-32 / MazeGame.PPM);
         setRegion(getFrame(dt));
     }
     private void goUp()
