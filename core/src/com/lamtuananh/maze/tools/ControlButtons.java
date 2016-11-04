@@ -36,8 +36,14 @@ public class ControlButtons {
     public CustomButton up,down,left,right;
     Stage stage;
     Skin skin;
-    public ControlButtons ()
+    public ControlButtons (Skin skin, Stage stage)
     {
+        this.stage = stage;
+        this.skin = skin;
+        initButtons();
+    }
+
+    private void initButtons() {
 
     }
 

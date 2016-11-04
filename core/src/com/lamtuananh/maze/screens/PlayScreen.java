@@ -9,11 +9,15 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.lamtuananh.maze.MazeGame;
+import com.lamtuananh.maze.player.Charakter;
 import com.lamtuananh.maze.player.Player;
 import com.lamtuananh.maze.tools.B2WorldCreator;
+import com.lamtuananh.maze.tools.ControlButtons;
 import com.lamtuananh.maze.tools.WorldContactListener;
 
 /**
@@ -35,6 +39,10 @@ public class PlayScreen  implements Screen {
     private Player player;
     public Vector2 startPosition;
 
+    public Array<Charakter> enemies = new Array<Charakter>();
+    Skin skin;
+    ControlButtons controlButtons;
+
     public PlayScreen(MazeGame game){
         System.out.print("Starting playing screen......");
         this.game = game;
@@ -52,8 +60,11 @@ public class PlayScreen  implements Screen {
         b2dr = new Box2DDebugRenderer();
         creator = new B2WorldCreator(this);
         world.setContactListener(new WorldContactListener());
+    }
 
-        player = new Player(this);
+    public void createPlayer(Vector2 position)
+    {
+        player = new Player(this,position);
     }
 
 
@@ -72,6 +83,10 @@ public class PlayScreen  implements Screen {
 
         //Player moving
         player.update(delta);
+
+        //Enemy update
+        for (Charakter charakter: enemies)
+            charakter.update(delta);
     }
     @Override
     public void render(float delta) {
@@ -80,12 +95,15 @@ public class PlayScreen  implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(gamecam.combined);
 
-        //render our game map
-        renderer.render();
+
         //renderer our Box2DDebugLines
         b2dr.render(world, gamecam.combined);
+        //render our game map
+        renderer.render();
         game.batch.begin();
         player.draw(game.batch);
+        for (Charakter charakter: enemies)
+            charakter.draw(game.batch);
         game.batch.end();
     }
 

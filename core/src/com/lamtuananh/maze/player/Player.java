@@ -1,11 +1,7 @@
 package com.lamtuananh.maze.player;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -20,28 +16,18 @@ import com.lamtuananh.maze.screens.PlayScreen;
 /**
  * Created by a.lam.tuan on 2. 11. 2016.
  */
-public class Player extends Sprite {
+public class Player extends Charakter {
 
-    public enum  State{GOLEFT, GORIGHT, GOUP , GODOWN,STANDING};
-    public State currentState;
-    public State previousState;
 
-    public World world;
-    public Body b2body;
-    private PlayScreen screen;
-    private Vector2 velocity;
-    float speed = 0;
-
-    Animation goLeft,goRight,goUp,goDown;
-    private float stateTimer;
-    TextureRegion playerStand,playerStandLeft,playerStandRight,playerStandUp,playerStandDown;
-    public Player(PlayScreen screen) {
-        //initialize default values
-        this.screen = screen;
-        this.world = screen.getWorld();
-        definePlayer(screen.startPosition);
+    public Player(PlayScreen screen,Vector2 position) {
+        super(screen,position);
+    }
+    @Override
+    public void init()
+    {
+        defineCharakter(positon);
         setBounds(0, 0, 48 / MazeGame.PPM, 48 / MazeGame.PPM);
-        velocity = new Vector2(50,50);
+
         speed = MovingSpeed.WALKING;
 
         Texture goLeftTexture = MazeGame.manager.get("tortoise/goLeft.png", Texture.class);
@@ -89,49 +75,8 @@ public class Player extends Sprite {
 
         setRegion(playerStand);
     }
-    public TextureRegion getFrame(float dt){
-        currentState=getState();
-        TextureRegion region = null;
-        switch (currentState){
-            case GOLEFT:
-                region=goLeft.getKeyFrame(stateTimer);
-                break;
-            case GORIGHT:
-                region=goRight.getKeyFrame(stateTimer);
-                break;
-            case GOUP:
-                region=goUp.getKeyFrame(stateTimer);
-                break;
-            case GODOWN:
-                region=goDown.getKeyFrame(stateTimer);
-                break;
-            default:
-                region = playerStand;
-                break;
-        }
-
-        stateTimer=currentState==previousState? stateTimer+dt:0;
-        previousState = currentState;
-        if(previousState == State.GODOWN) playerStand = playerStandDown;
-        else  if(previousState == State.GOLEFT) playerStand = playerStandLeft;
-        else  if(previousState == State.GORIGHT) playerStand = playerStandRight;
-        else if(previousState == State.GOUP) playerStand = playerStandUp;
-        return region;
-    }
-    public State getState(){
-        if(b2body.getLinearVelocity().y>0 )
-            return  State.GOUP;
-        if(b2body.getLinearVelocity().y<0)
-            return State.GODOWN;
-        else if(b2body.getLinearVelocity().x > 0)
-            return State.GORIGHT;
-        else
-        if(b2body.getLinearVelocity().x < 0)
-            return State.GOLEFT;
-        else return State.STANDING;
-    }
-
-    public void definePlayer(Vector2 position){
+    @Override
+    public void defineCharakter(Vector2 position){
         BodyDef bdef = new BodyDef();
         bdef.position.set(position);
         //    bdef.position.set(MarioBros.V_WIDTH/2,MarioBros.V_HEIGHT/2);
@@ -142,53 +87,8 @@ public class Player extends Sprite {
         shape.setRadius(16 / MazeGame.PPM);
         fdef.shape = shape;
         fdef.filter.categoryBits = MazeGame.PLAYER_BIT;
-        fdef.filter.maskBits = MazeGame.GROUND_BIT ;
+        fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT ;
 
         b2body.createFixture(fdef).setUserData(this);
-    }
-    public void update(float dt) {
-
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-        {
-           goLeft();
-        }
-        else
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-        {
-            goRight();
-        }
-        else
-        if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            goUp();
-        }
-        else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) goDown();
-        else velocity = new Vector2(0,0);
-        b2body.setLinearVelocity(velocity);
-        setPosition(b2body.getPosition().x - 24 / MazeGame.PPM,b2body.getPosition().y-24 / MazeGame.PPM);
-        setRegion(getFrame(dt));
-    }
-    private void goUp()
-    {
-        velocity = new Vector2(0,speed);
-        currentState = State.GOUP;
-    }
-    private void goDown()
-    {
-        velocity = new Vector2(0,-speed);
-        currentState = State.GODOWN;
-
-    }
-    private void goRight()
-    {
-        velocity = new Vector2(speed,0);
-        currentState = State.GORIGHT;
-    }
-    private void goLeft()
-    {
-        velocity = new Vector2(-speed,0);
-        currentState = State.GOLEFT;
-    }
-    public void draw(Batch batch){
-        super.draw(batch);
     }
 }

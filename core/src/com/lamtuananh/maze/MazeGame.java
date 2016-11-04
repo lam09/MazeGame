@@ -33,6 +33,10 @@ public class MazeGame extends Game {
 		manager.load("tortoise/goLeft.png", Texture.class);
 		manager.load("tortoise/goRight.png", Texture.class);
 		manager.load("tortoise/goUp.png", Texture.class);
+		manager.load("enemy/stone/Stone.png", Texture.class);
+		for(int i = 1 ; i<13; i++)
+			manager.load("enemy/stone/"+i+".png", Texture.class);
+
 		manager.finishLoading();
 
 		setScreen(new PlayScreen(this));
@@ -41,11 +45,6 @@ public class MazeGame extends Game {
 	@Override
 	public void render () {
 		super.render();
-	/*	Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();*/
 	}
 
 	@Override
