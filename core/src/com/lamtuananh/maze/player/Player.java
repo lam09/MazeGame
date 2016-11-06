@@ -4,11 +4,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.lamtuananh.maze.MazeGame;
 import com.lamtuananh.maze.screens.PlayScreen;
@@ -25,8 +23,10 @@ public class Player extends Charakter {
     @Override
     public void init()
     {
+        sizeScale = 48;
+
         defineCharakter(positon);
-        setBounds(0, 0, 48 / MazeGame.PPM, 48 / MazeGame.PPM);
+        setBounds(0, 0, sizeScale / MazeGame.PPM, sizeScale / MazeGame.PPM);
 
         speed = MovingSpeed.WALKING;
 
@@ -84,7 +84,7 @@ public class Player extends Charakter {
         b2body = world.createBody(bdef);
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(16 / MazeGame.PPM);
+        shape.setRadius(sizeScale/3 / MazeGame.PPM);
         fdef.shape = shape;
         fdef.filter.categoryBits = MazeGame.PLAYER_BIT;
         fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT ;

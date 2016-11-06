@@ -1,6 +1,7 @@
 package com.lamtuananh.maze;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,6 +14,9 @@ public class MazeGame extends Game {
 	public static final float PPM = 50;
 	public static final short GROUND_BIT = 1;
 	public static final short PLAYER_BIT = 2;
+	public static int WIDTH;// = Gdx.app.getGraphics().getWidth();
+	public static int HEIGHT;// = Gdx.app.getGraphics().getHeight();
+
 
 
 	public SpriteBatch batch;
@@ -22,6 +26,7 @@ public class MazeGame extends Game {
 
 	@Override
 	public void create () {
+		System.out.print(Gdx.app.getGraphics().getWidth() + " " + HEIGHT);
 		manager = new AssetManager();
 		mapLoader = new TmxMapLoader();
 //		mapLoader.load("maze1.tmx");

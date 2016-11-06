@@ -2,18 +2,13 @@ package com.lamtuananh.maze.player;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
 import com.lamtuananh.maze.MazeGame;
 import com.lamtuananh.maze.screens.PlayScreen;
 
@@ -21,7 +16,7 @@ import com.lamtuananh.maze.screens.PlayScreen;
  * Created by a.lam.tuan on 4. 11. 2016.
  */
 public abstract class Charakter extends Sprite{
-    public enum  State{GOLEFT, GORIGHT, GOUP , GODOWN,STANDING};
+    public enum  State{GOLEFT, GORIGHT, GOUP , GODOWN,STANDING,APPEARING,DISAPPEARING};
     public State currentState;
     public State previousState;
 
@@ -35,6 +30,7 @@ public abstract class Charakter extends Sprite{
     private float stateTimer;
     public Vector2 positon;
     public TextureRegion playerStand,playerStandLeft,playerStandRight,playerStandUp,playerStandDown;
+    public float sizeScale;
     public Charakter(PlayScreen screen,Vector2 postion) {
         //initialize default values
         this.screen = screen;
@@ -62,6 +58,10 @@ public abstract class Charakter extends Sprite{
                 break;
             case GODOWN:
                 region=goDown.getKeyFrame(stateTimer);
+                break;
+            case DISAPPEARING:
+                break;
+            case APPEARING:
                 break;
             default:
                 region = playerStand;
@@ -140,6 +140,10 @@ public abstract class Charakter extends Sprite{
     {
         velocity = new Vector2(-speed,0);
         currentState = State.GOLEFT;
+    }protected void stand()
+    {
+        velocity = new Vector2(0,0);
+        currentState = State.STANDING;
     }
     public void draw(Batch batch){
         super.draw(batch);

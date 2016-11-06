@@ -24,7 +24,7 @@ public class StoneMonster extends Charakter {
     @Override
     protected void init() {
         defineCharakter(positon);
-        setBounds(0, 0, 64 / MazeGame.PPM, 64 / MazeGame.PPM);
+        setBounds(0, 0, 48 / MazeGame.PPM, 48 / MazeGame.PPM);
         velocity = new Vector2(50,50);
         speed = MovingSpeed.SLOWING;
         //Texture texture = MazeGame.manager.get("enemy/stone/Stone.png", Texture.class);
@@ -104,12 +104,14 @@ public class StoneMonster extends Charakter {
         if(currentState == State.GOLEFT ) goLeft();
         if(currentState == State.GORIGHT ) goRight();
         if(currentState == State.GOUP ) goUp();
+        if(currentState == State.STANDING ) stand();
         if(MathUtils.random(0,5000)>4950) {
-            int i = MathUtils.random(1,4);
+            int i = MathUtils.random(1,5);
             if(i==1) goDown();
             if(i==2) goLeft();
             if(i==3) goRight();
             if(i==4) goUp();
+            if(i==5) stand();
         }
         b2body.setLinearVelocity(velocity);
         setPosition(b2body.getPosition().x - 24 / MazeGame.PPM,b2body.getPosition().y-24 / MazeGame.PPM);

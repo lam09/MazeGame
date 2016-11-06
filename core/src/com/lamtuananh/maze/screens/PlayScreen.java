@@ -48,7 +48,7 @@ public class PlayScreen  implements Screen {
         this.game = game;
         gamecam = new OrthographicCamera();
         //create a FitViewport to maintain virtual aspect ratio despite screen size
-        gamePort = new FitViewport(800/ MazeGame.PPM,500/ MazeGame.PPM, gamecam);
+        gamePort = new FitViewport(Gdx.app.getGraphics().getWidth()/ MazeGame.PPM,Gdx.app.getGraphics().getHeight()/ MazeGame.PPM, gamecam);
 
         map = MazeGame.manager.get("maze1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1  / MazeGame.PPM);
@@ -95,11 +95,14 @@ public class PlayScreen  implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(gamecam.combined);
 
+        //render our game map
+        renderer.render();
 
         //renderer our Box2DDebugLines
         b2dr.render(world, gamecam.combined);
-        //render our game map
-        renderer.render();
+
+
+
         game.batch.begin();
         player.draw(game.batch);
         for (Charakter charakter: enemies)
