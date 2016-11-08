@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.lamtuananh.maze.MazeGame;
+import com.lamtuananh.maze.items.Wall;
 import com.lamtuananh.maze.player.Charakter;
 import com.lamtuananh.maze.player.Player;
 import com.lamtuananh.maze.tools.B2WorldCreator;
@@ -25,22 +26,20 @@ import com.lamtuananh.maze.tools.WorldContactListener;
  */
 public class PlayScreen  implements Screen {
     MazeGame game;
-    private OrthographicCamera gamecam;
-    private Viewport gamePort;
+    protected OrthographicCamera gamecam;
+    protected Viewport gamePort;
 
-    private TiledMap map;
-    private OrthogonalTiledMapRenderer renderer;
+    protected TiledMap map;
+    protected OrthogonalTiledMapRenderer renderer;
 
 
-    private World world;
-    private Box2DDebugRenderer b2dr;
-    private B2WorldCreator creator;
+    protected World world;
+    protected Box2DDebugRenderer b2dr;
+    protected B2WorldCreator creator;
 
-    private Player player;
-    public Vector2 startPosition;
-
+    protected Player player;
     public Array<Charakter> enemies = new Array<Charakter>();
-    Skin skin;
+    public Array<Wall> walls = new Array<Wall>();
     ControlButtons controlButtons;
 
     public PlayScreen(MazeGame game){
@@ -49,24 +48,26 @@ public class PlayScreen  implements Screen {
         gamecam = new OrthographicCamera();
         //create a FitViewport to maintain virtual aspect ratio despite screen size
         gamePort = new FitViewport(Gdx.app.getGraphics().getWidth()/ MazeGame.PPM,Gdx.app.getGraphics().getHeight()/ MazeGame.PPM, gamecam);
-
-        map = MazeGame.manager.get("maze1.tmx");
+        init();
         renderer = new OrthogonalTiledMapRenderer(map, 1  / MazeGame.PPM);
-        System.out.print(gamePort.getWorldWidth() / 2 +" "+ gamePort.getWorldHeight() / 2);
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
-
-
+        initWorld();
+    }
+    public void initWorld()
+    {
         world = new World(new Vector2(0,0), true);
         b2dr = new Box2DDebugRenderer();
         creator = new B2WorldCreator(this);
         world.setContactListener(new WorldContactListener());
     }
-
     public void createPlayer(Vector2 position)
     {
         player = new Player(this,position);
     }
-
+    public  void init()
+    {
+        map = MazeGame.manager.get("maze1.tmx");
+    }
 
     @Override
     public void show() {
@@ -100,8 +101,6 @@ public class PlayScreen  implements Screen {
 
         //renderer our Box2DDebugLines
         b2dr.render(world, gamecam.combined);
-
-
 
         game.batch.begin();
         player.draw(game.batch);
