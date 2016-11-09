@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="40">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="41">
  <tileset firstgid="1" name="tileset_gutter" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924" columns="33">
   <image source="tileset_gutter.png" width="594" height="504"/>
  </tileset>
@@ -11,7 +11,7 @@
  </tileset>
  <layer name="Background" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJztmFFuxDAIRLNXaQ7S8+wx9uZVP6KmiIHB4NixstL8RI7hmYEku2/btk+oN6no+t5i82HWtZxHFUMl72gvVflwdC7VHN8vvr4jPMj6qprjC+gKDo/ljhxeL1VzHPE1MXGRr7IcEY+29raX1/kMtBqN4rD2eitrMhw9Zhrab3di3o0Drbkbx1X1kDMnoxU45AzvxWHN+lU42B6I3NfKYSny7H04/st771mRg92T4WiZrR5HJJ9WVXGgeTUDB6p/C4d8z9c4Ih6P+KrivpU4pK7mQN9tLAfyGfqWPO7bjDisLA65xuLQmM77VnOgb36G42O8D1kcsl88Dut/Aa3vruSw+uP4Zeavx3GOm+WQ+/Xi8OYEy4FiWRxRXzFzB/kgy4FykBzZecVyaLOcrYemh4PXTBxWf6C+moUj8iyxZgLL8XnVc7TMYSntWYk4fq+vxMHOj2h/HPt70uJrHCjPcy16cLA8HocmL26Eo4cejr/rM3BEedFz5K6yajLqXDOe0GrTK1/LvyyH5SuvhyLn2OKHKg6mHtmcvRwjvtLW/ADVytQb
+   eJztmcttxDAMRJUOUkO2kNSTMrZxI9iDAYEYkkOKsmXDh7kYEsUnfmTLr9baa0FtpKLjZ4v1hxmX2Y8qhkres3OpKg/P9qWa4/ertb9mq7fhja1UJK+qOX4UHcHhsVyRA/k7k2NfH4npqVpejXJEcjRb26hXyb1BfGdzeGdRJceMnqZx9P5Xx+MMjk1Z82ocR8VD9pwR3YFD9vBZHNLf0f60IgdbA5F5WQ5L6Ox9ODh57z135GBtMhxsPUc4Iv5kVcWh9asVOLT4Zzjkez7iiOR4JK+y8/rz/E4cUkdzaN9tLIeWZ9q35G7rnWRjOeQYiwMx9XarObRvfobjrczzOGS9eBzWvQCquyM5rPr42P0Wc6L91+Po1x3lkPZmcXh9guXQ1rI4onnF9l2UB6Mcmg/V/YrlQPdwbDyQHg5eK3FY9aHV1SockbPE6gksx+5LJUemD0uhs1Lj+Dy/Ewdz356pj92+J7QHiEPbqz4WMzhYHo8Dqa+NyP+Po/RwcPfUqwn1hqv/+0c1jt7lZyriX8TeLA4r/la+RPg3MYfhqMoHL+8zHEw8Rn22GCIcmp//beqdJA==
   </data>
  </layer>
  <objectgroup name="wall">
@@ -21,20 +21,9 @@
   <object id="6" x="709" y="17" width="31" height="209"/>
   <object id="7" x="26" y="45" width="738" height="32"/>
   <object id="10" x="706" y="354" width="47" height="382"/>
-  <object id="11" x="145" y="129" width="30" height="400"/>
-  <object id="12" x="228" y="82" width="42" height="202"/>
-  <object id="13" x="171" y="352" width="194" height="32"/>
-  <object id="16" x="225" y="433" width="32" height="238"/>
-  <object id="17" x="252" y="478" width="196" height="32"/>
-  <object id="18" x="312" y="606" width="228" height="34"/>
-  <object id="19" x="368" y="182" width="48" height="250"/>
-  <object id="20" x="534" y="144" width="178" height="32"/>
   <object id="21" x="464" y="224" width="290" height="44"/>
-  <object id="22" x="482" y="372" width="44" height="184"/>
   <object id="23" x="478" y="335" width="112" height="33"/>
   <object id="24" x="590" y="268" width="50" height="164"/>
-  <object id="25" x="544" y="606" width="33" height="109"/>
-  <object id="26" x="627" y="430" width="31" height="226"/>
   <object id="27" x="402" y="98" width="92" height="45"/>
   <object id="28" x="1" y="332" width="50" height="13"/>
   <object id="29" x="1" y="345" width="13" height="71"/>
@@ -53,5 +42,8 @@
   <object id="37" x="397" y="664" width="51" height="37"/>
   <object id="38" x="356" y="545" width="43" height="36"/>
   <object id="39" x="565" y="480" width="41" height="45"/>
+ </objectgroup>
+ <objectgroup name="flexiwall">
+  <object id="40" x="144" y="130" width="30" height="396"/>
  </objectgroup>
 </map>

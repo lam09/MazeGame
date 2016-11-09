@@ -87,7 +87,7 @@ public class Player extends Charakter {
         shape.setRadius(sizeScale/3 / MazeGame.PPM);
         fdef.shape = shape;
         fdef.filter.categoryBits = MazeGame.PLAYER_BIT;
-        fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT ;
+        fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.STONE_BIT;
 
         b2body.createFixture(fdef).setUserData(this);
     }

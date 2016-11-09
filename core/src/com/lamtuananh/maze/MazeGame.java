@@ -9,11 +9,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.lamtuananh.maze.screens.PlayScreen;
+import com.lamtuananh.maze.screens.PlayScreenManager;
+import com.lamtuananh.maze.screens.PlayScreenStageOne;
 
 public class MazeGame extends Game {
 	public static final float PPM = 50;
 	public static final short GROUND_BIT = 1;
 	public static final short PLAYER_BIT = 2;
+	public static final short STONE_BIT = 4;
+	public static final short FLEXIWALL_BIT = 8;
+
 	public static int WIDTH;// = Gdx.app.getGraphics().getWidth();
 	public static int HEIGHT;// = Gdx.app.getGraphics().getHeight();
 
@@ -23,7 +28,7 @@ public class MazeGame extends Game {
 	Texture img;
 	public static AssetManager manager;
 	public static TmxMapLoader mapLoader;
-
+	public PlayScreenManager mng;
 	@Override
 	public void create () {
 		System.out.print(Gdx.app.getGraphics().getWidth() + " " + HEIGHT);
@@ -34,6 +39,12 @@ public class MazeGame extends Game {
 		img = new Texture("badlogic.jpg");
 		manager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
 		manager.load("maze1.tmx", TiledMap.class);
+	//	manager.load("maze2.tmx", TiledMap.class);
+	/*	manager.load("maze3.tmx", TiledMap.class);
+		manager.load("maze4.tmx", TiledMap.class);
+		manager.load("maze5.tmx", TiledMap.class);
+		manager.load("maze6.tmx", TiledMap.class);
+		manager.load("maze7.tmx", TiledMap.class);*/
 		manager.load("tortoise/goDown3.png", Texture.class);
 		manager.load("tortoise/goLeft.png", Texture.class);
 		manager.load("tortoise/goRight.png", Texture.class);
@@ -44,7 +55,11 @@ public class MazeGame extends Game {
 
 		manager.finishLoading();
 
-		setScreen(new PlayScreen(this));
+		mng = new PlayScreenManager(this);
+		mng.addScreen(new PlayScreenStageOne(this,"maze1.tmx"));
+		//mng.addScreen(new PlayScreenStageOne(this,"maze2.tmx"));
+
+		mng.setCurrentScreen();
 	}
 
 	@Override

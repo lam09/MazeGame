@@ -91,8 +91,8 @@ public class StoneMonster extends Charakter {
         CircleShape shape = new CircleShape();
         shape.setRadius(24 / MazeGame.PPM);
         fdef.shape = shape;
-        fdef.filter.categoryBits = MazeGame.PLAYER_BIT;
-        fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT;
+        fdef.filter.categoryBits = MazeGame.STONE_BIT;
+        fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.STONE_BIT;
 
         b2body.createFixture(fdef).setUserData(this);
     }

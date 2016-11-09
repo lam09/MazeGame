@@ -24,7 +24,11 @@ public class PlayScreenManager {
         if(currentScreenIndex<screens.size)
         game.setScreen(screens.get(++currentScreenIndex));
     }
-    public void replayCurrentScreen()
+    public void resetStage()
+    {
+        Class className = screens.get(currentScreenIndex).getClass();
+    }
+    public void setCurrentScreen()
     {
         game.setScreen(screens.get(currentScreenIndex));
     }

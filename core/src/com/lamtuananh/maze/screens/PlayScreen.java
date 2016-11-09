@@ -41,10 +41,12 @@ public class PlayScreen  implements Screen {
     public Array<Charakter> enemies = new Array<Charakter>();
     public Array<Wall> walls = new Array<Wall>();
     ControlButtons controlButtons;
-
-    public PlayScreen(MazeGame game){
+    protected String mapName;
+    public PlayScreen(MazeGame game,String mapName){
         System.out.print("Starting playing screen......");
+
         this.game = game;
+        this.mapName = mapName;
         gamecam = new OrthographicCamera();
         //create a FitViewport to maintain virtual aspect ratio despite screen size
         gamePort = new FitViewport(Gdx.app.getGraphics().getWidth()/ MazeGame.PPM,Gdx.app.getGraphics().getHeight()/ MazeGame.PPM, gamecam);
@@ -55,10 +57,6 @@ public class PlayScreen  implements Screen {
     }
     public void initWorld()
     {
-        world = new World(new Vector2(0,0), true);
-        b2dr = new Box2DDebugRenderer();
-        creator = new B2WorldCreator(this);
-        world.setContactListener(new WorldContactListener());
     }
     public void createPlayer(Vector2 position)
     {
@@ -66,7 +64,6 @@ public class PlayScreen  implements Screen {
     }
     public  void init()
     {
-        map = MazeGame.manager.get("maze1.tmx");
     }
 
     @Override
