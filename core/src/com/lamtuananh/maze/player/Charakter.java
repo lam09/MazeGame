@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.lamtuananh.maze.MazeGame;
 import com.lamtuananh.maze.screens.PlayScreen;
+import com.lamtuananh.maze.tools.ControlButtons;
 
 /**
  * Created by a.lam.tuan on 4. 11. 2016.
@@ -101,20 +102,20 @@ public abstract class Charakter extends Sprite{
      */
     public void update(float dt) {
 
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
+        if(ControlButtons.getInstance().left.button.isPressed()||Gdx.input.isKeyPressed(Input.Keys.LEFT))
         {
             goLeft();
         }
         else
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+        if(ControlButtons.getInstance().right.button.isPressed()||Gdx.input.isKeyPressed(Input.Keys.RIGHT))
         {
             goRight();
         }
         else
-        if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
+        if(ControlButtons.getInstance().up.button.isPressed()||Gdx.input.isKeyPressed(Input.Keys.UP)) {
             goUp();
         }
-        else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) goDown();
+        else if(ControlButtons.getInstance().down.button.isPressed()||Gdx.input.isKeyPressed(Input.Keys.DOWN)) goDown();
         else velocity = new Vector2(0,0);
         b2body.setLinearVelocity(velocity);
         setPosition(b2body.getPosition().x - 24 / MazeGame.PPM,b2body.getPosition().y-24 / MazeGame.PPM);

@@ -91,4 +91,7 @@ public class Player extends Charakter {
 
         b2body.createFixture(fdef).setUserData(this);
     }
+
+
+
 }

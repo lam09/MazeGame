@@ -16,7 +16,7 @@ import com.lamtuananh.maze.screens.PlayScreen;
 
 
 /**
- * Created by brentaureli on 8/28/15.
+ * Created by lamtuananh on 9/11/16.
  */
 public class B2WorldCreator {
     PlayScreen screen;
@@ -39,7 +39,7 @@ public class B2WorldCreator {
         //create body and fixture variables
         initBackgroundObject();
         initEnemies();
-
+     //   initMovingableWall();
     }
     protected void initBackgroundObject(){
         //create ground bodies/fixtures

@@ -27,6 +27,7 @@ public class PlayScreenManager {
     public void resetStage()
     {
         Class className = screens.get(currentScreenIndex).getClass();
+        System.out.print(className);
     }
     public void setCurrentScreen()
     {

@@ -18,6 +18,7 @@ public class MazeGame extends Game {
 	public static final short PLAYER_BIT = 2;
 	public static final short STONE_BIT = 4;
 	public static final short FLEXIWALL_BIT = 8;
+	public static  int OFFSET = 25;
 
 	public static int WIDTH;// = Gdx.app.getGraphics().getWidth();
 	public static int HEIGHT;// = Gdx.app.getGraphics().getHeight();
@@ -45,11 +46,24 @@ public class MazeGame extends Game {
 		manager.load("maze5.tmx", TiledMap.class);
 		manager.load("maze6.tmx", TiledMap.class);
 		manager.load("maze7.tmx", TiledMap.class);*/
+		manager.load("buttons/up.png", Texture.class);
+		manager.load("buttons/down.png", Texture.class);
+		manager.load("buttons/left.png", Texture.class);
+		manager.load("buttons/right.png", Texture.class);
+		manager.load("buttons/upDown.png", Texture.class);
+		manager.load("buttons/downDown.png", Texture.class);
+		manager.load("buttons/leftDown.png", Texture.class);
+		manager.load("buttons/rightDown.png", Texture.class);
+		manager.load("buttons/attach.png", Texture.class);
+		manager.load("buttons/attachDown.png", Texture.class);
+
 		manager.load("tortoise/goDown3.png", Texture.class);
 		manager.load("tortoise/goLeft.png", Texture.class);
 		manager.load("tortoise/goRight.png", Texture.class);
 		manager.load("tortoise/goUp.png", Texture.class);
 		manager.load("enemy/stone/Stone.png", Texture.class);
+		manager.load("flexiwall.png", Texture.class);
+
 		for(int i = 1 ; i<13; i++)
 			manager.load("enemy/stone/"+i+".png", Texture.class);
 

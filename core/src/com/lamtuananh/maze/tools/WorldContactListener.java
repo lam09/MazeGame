@@ -24,6 +24,7 @@ public class WorldContactListener implements ContactListener {
         switch (cDef){
             case MazeGame.PLAYER_BIT|MazeGame.STONE_BIT:
                 game.mng.setCurrentScreen();
+                game.mng.resetStage();
                 break;
             default:
                 break;
