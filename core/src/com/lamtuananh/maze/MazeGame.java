@@ -4,11 +4,11 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.lamtuananh.maze.screens.PlayScreen;
 import com.lamtuananh.maze.screens.PlayScreenManager;
 import com.lamtuananh.maze.screens.PlayScreenStageOne;
 
@@ -37,7 +37,7 @@ public class MazeGame extends Game {
 		mapLoader = new TmxMapLoader();
 //		mapLoader.load("maze1.tmx");
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		//img = new Texture("badlogic.jpg");
 		manager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
 		manager.load("maze1.tmx", TiledMap.class);
 	//	manager.load("maze2.tmx", TiledMap.class);
@@ -62,7 +62,10 @@ public class MazeGame extends Game {
 		manager.load("tortoise/goRight.png", Texture.class);
 		manager.load("tortoise/goUp.png", Texture.class);
 		manager.load("enemy/stone/Stone.png", Texture.class);
+		manager.load("wall.png", Texture.class);
 		manager.load("flexiwall.png", Texture.class);
+		manager.load("sound/background.mp3", Music.class);
+
 
 		for(int i = 1 ; i<13; i++)
 			manager.load("enemy/stone/"+i+".png", Texture.class);

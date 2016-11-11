@@ -26,8 +26,10 @@ public class PlayScreenManager {
     }
     public void resetStage()
     {
-        Class className = screens.get(currentScreenIndex).getClass();
-        System.out.print(className);
+        if(screens.get(currentScreenIndex)instanceof PlayScreenStageOne){
+            screens.set(currentScreenIndex, new PlayScreenStageOne(game,"maze1.tmx"));
+        }
+        setCurrentScreen();
     }
     public void setCurrentScreen()
     {

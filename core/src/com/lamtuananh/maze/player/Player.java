@@ -92,6 +92,11 @@ public class Player extends Charakter {
         b2body.createFixture(fdef).setUserData(this);
     }
 
+    public void setPosition(Vector2 position)
+    {
+
+    }
+
 
 
 }

@@ -1,11 +1,11 @@
 package com.lamtuananh.maze.screens;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -28,6 +28,9 @@ public class PlayScreenStageOne extends PlayScreen {
     public void init() {
         System.out.print(mapName);
         map = MazeGame.manager.get(""+mapName);
+        background = MazeGame.manager.get("sound/background.mp3", Music.class);
+        background.setLooping(true);
+        background.play();
     }
     @Override
     public void initWorld() {
