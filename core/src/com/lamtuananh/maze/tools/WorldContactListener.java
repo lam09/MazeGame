@@ -7,7 +7,6 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.lamtuananh.maze.MazeGame;
 import com.lamtuananh.maze.items.InteractionTileObject;
-import com.lamtuananh.maze.items.Wall;
 
 /**
  * Created by brentaureli on 9/4/15.
@@ -28,12 +27,23 @@ public class WorldContactListener implements ContactListener {
                 game.mng.setCurrentScreen();
                 game.mng.resetStage();
                 break;
+            case MazeGame.FLEXIWALL_BIT|MazeGame.STONE_BIT:
+                System.out.print("flexi hit the stone");
+
+                break;
             case MazeGame.FLEXIWALL_BIT|MazeGame.GROUND_BIT:
-                Fixture object = fixA.getUserData()=="flexiwall"? fixB:fixA;
-                if(object.getUserData() instanceof Wall)
+                System.out.print("Heloo wall");
+                if(fixA.getUserData() instanceof InteractionTileObject)
                 {
-                    ((InteractionTileObject) object.getUserData()).onHeadHit();
+                    ((InteractionTileObject) fixA.getUserData()).onHeadHit();
                 }
+                if(fixB.getUserData() instanceof InteractionTileObject)
+                {
+                    ((InteractionTileObject) fixB.getUserData()).onHeadHit();
+                }
+                break;
+            case MazeGame.PLAYER_BIT|MazeGame.END:
+                MazeGame.mng.setNextScreen();
                 break;
 
             default:

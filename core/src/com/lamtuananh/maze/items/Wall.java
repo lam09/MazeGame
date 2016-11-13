@@ -37,6 +37,8 @@ public class Wall extends InteractionTileObject{
         setRegion(region);
         setPosition(rect.getX(),rect.getY());
         if(rect.getWidth()>rect.getHeight()) velocity=new Vector2(5,0);
+
+        fixture.setUserData(this);
     }
 
 
@@ -45,7 +47,7 @@ public class Wall extends InteractionTileObject{
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
-        bdef.type = BodyDef.BodyType.KinematicBody;
+        bdef.type = BodyDef.BodyType.DynamicBody;
         bdef.position.set((rect.getX() + rect.getWidth() / 2) / MazeGame.PPM, (rect.getY() + rect.getHeight() / 2) / MazeGame.PPM);
         b2body = world.createBody(bdef);
         shape.setAsBox(rect.getWidth() / 2 / MazeGame.PPM, rect.getHeight() / 2 / MazeGame.PPM);
@@ -53,7 +55,8 @@ public class Wall extends InteractionTileObject{
         fdef.filter.categoryBits = MazeGame.FLEXIWALL_BIT;
         fdef.filter.maskBits = MazeGame.GROUND_BIT|MazeGame.STONE_BIT|MazeGame.PLAYER_BIT;
         fixture = b2body.createFixture(fdef);
-        fixture.setUserData("flexiwall");
+        //fixture.setUserData("flexiwall");
+        //System.out.print("init walll");
     }
 
     @Override

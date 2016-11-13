@@ -16,7 +16,7 @@ public abstract class InteractionTileObject extends Sprite{
     protected TiledMap map;
     protected TiledMapTile tile;
    // protected Body body;
-    protected Fixture fixture;
+    public Fixture fixture;
 
 
     protected PlayScreen screen;
@@ -30,7 +30,6 @@ public abstract class InteractionTileObject extends Sprite{
     {
         this.screen = screen;
         this.world =screen.getWorld();
-
     }
 
     protected abstract void init();

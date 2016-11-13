@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="24" tileheight="24" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="24" tileheight="24" nextobjectid="8">
  <tileset firstgid="1" name="title1" tilewidth="24" tileheight="24" tilecount="200" columns="10">
   <image source="title1.png" width="241" height="482"/>
  </tileset>
@@ -113,9 +113,20 @@
 359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359,359
 </data>
  </layer>
- <objectgroup name="start"/>
- <objectgroup name="end"/>
- <objectgroup name="wall"/>
- <objectgroup name="enemy"/>
+ <objectgroup name="start">
+  <object id="1" x="33" y="163" width="41" height="57"/>
+ </objectgroup>
+ <objectgroup name="end">
+  <object id="2" x="654" y="183" width="67" height="89"/>
+ </objectgroup>
+ <objectgroup name="wall">
+  <object id="3" x="140" y="9" width="283" height="46"/>
+  <object id="4" x="149" y="482" width="197" height="90"/>
+ </objectgroup>
+ <objectgroup name="enemy">
+  <object id="5" x="238" y="227" width="122" height="127"/>
+  <object id="6" x="469" y="242" width="125" height="111"/>
+  <object id="7" x="480" y="127" width="69" height="43"/>
+ </objectgroup>
  <objectgroup name="flexiwall"/>
 </map>

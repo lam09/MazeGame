@@ -39,6 +39,7 @@ public class B2WorldCreator {
         //create body and fixture variables
         initBackgroundObject();
         initEnemies();
+        initPrincess();
      //   initMovingableWall();
     }
     protected void initBackgroundObject(){
@@ -50,6 +51,9 @@ public class B2WorldCreator {
             body = world.createBody(bdef);
             shape.setAsBox(rect.getWidth() / 2 / MazeGame.PPM, rect.getHeight() / 2 / MazeGame.PPM);
             fdef.shape = shape;
+            fdef.filter.categoryBits = MazeGame.GROUND_BIT;
+            fdef.filter.maskBits = MazeGame.GROUND_BIT|MazeGame.FLEXIWALL_BIT|MazeGame.STONE_BIT|
+                    MazeGame.PLAYER_BIT;
             body.createFixture(fdef);
         }
     }
@@ -81,7 +85,8 @@ public class B2WorldCreator {
     {
         Rectangle start=((RectangleMapObject) map.getLayers().get("end").getObjects().getByType(RectangleMapObject.class).get(0)).getRectangle();
         {
-            screen.createPlayer(new Vector2(start.getX()/MazeGame.PPM,start.getY()/MazeGame.PPM));
+            screen.endSecction(start);
+
         }
 
 
