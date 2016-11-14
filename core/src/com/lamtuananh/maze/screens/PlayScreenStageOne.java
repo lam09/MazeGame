@@ -41,7 +41,7 @@ public class PlayScreenStageOne extends PlayScreen {
 
     private void initWalls() {
         walls = new Array<InteractionTileObject>();
-
+        //if(map.getLayers().get("flexiwall").isVisible())
         for(MapObject object : map.getLayers().get("flexiwall").getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
             walls.add(new Wall(this,rect));

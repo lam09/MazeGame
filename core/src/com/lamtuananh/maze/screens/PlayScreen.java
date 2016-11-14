@@ -58,7 +58,7 @@ public class PlayScreen  implements Screen {
         this.mapName = mapName;
         gamecam = new OrthographicCamera();
         //create a FitViewport to maintain virtual aspect ratio despite screen size
-        gamePort = new FitViewport(Gdx.app.getGraphics().getWidth()/1f/ MazeGame.PPM,Gdx.app.getGraphics().getHeight()/1f/ MazeGame.PPM, gamecam);
+        gamePort = new FitViewport(Gdx.app.getGraphics().getWidth()/MazeGame.ZOOM/ MazeGame.PPM,Gdx.app.getGraphics().getHeight()/MazeGame.ZOOM/ MazeGame.PPM, gamecam);
         init();
         renderer = new OrthogonalTiledMapRenderer(map, 1  / MazeGame.PPM);
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);

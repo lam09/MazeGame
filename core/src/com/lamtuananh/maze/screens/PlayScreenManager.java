@@ -22,13 +22,13 @@ public class PlayScreenManager {
     }
     public void setNextScreen()
     {
-        if(currentScreenIndex<screens.size)
+        if(currentScreenIndex<screens.size-1)
         game.setScreen(screens.get(++currentScreenIndex));
     }
     public void resetStage()
     {
         if(screens.get(currentScreenIndex)instanceof PlayScreenStageOne){
-            screens.set(currentScreenIndex, new PlayScreenStageOne(game,"maze1.tmx"));
+            screens.set(currentScreenIndex, new PlayScreenStageOne(game,"maze"+currentScreenIndex+".tmx"));
         }
         setCurrentScreen();
     }

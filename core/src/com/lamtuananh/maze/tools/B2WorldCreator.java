@@ -40,7 +40,6 @@ public class B2WorldCreator {
         initBackgroundObject();
         initEnemies();
         initPrincess();
-     //   initMovingableWall();
     }
     protected void initBackgroundObject(){
         //create ground bodies/fixtures
@@ -57,18 +56,7 @@ public class B2WorldCreator {
             body.createFixture(fdef);
         }
     }
-    protected void initMovingableWall(){
-        //create ground bodies/fixtures
-        for(MapObject object : map.getLayers().get("flexiwall").getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MazeGame.PPM, (rect.getY() + rect.getHeight() / 2) / MazeGame.PPM);
-            body = world.createBody(bdef);
-            shape.setAsBox(rect.getWidth() / 2 / MazeGame.PPM, rect.getHeight() / 2 / MazeGame.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-    }
+
     protected void initEnemies()
     {
         Rectangle start=((RectangleMapObject) map.getLayers().get("start").getObjects().getByType(RectangleMapObject.class).get(0)).getRectangle();

@@ -16,18 +16,20 @@ import com.lamtuananh.maze.screens.PlayScreenStageOne;
 import java.util.Random;
 
 public class MazeGame extends Game {
-	public static final short END = 16;
 	public static MazeGame instance;
 
 	public static int SCREEN_WIDTH = 0;
 	public static int SCREEN_HEIGHT = 0;
+	public static  int OFFSET = 25;
+	public static  float ZOOM = 1.5f;
 
 	public static final float PPM = 50;
 	public static final short GROUND_BIT = 1;
 	public static final short PLAYER_BIT = 2;
 	public static final short STONE_BIT = 4;
 	public static final short FLEXIWALL_BIT = 8;
-	public static  int OFFSET = 25;
+	public static final short END = 16;
+
 
 	public static int WIDTH;// = Gdx.app.getGraphics().getWidth();
 	public static int HEIGHT;// = Gdx.app.getGraphics().getHeight();
@@ -49,6 +51,8 @@ public class MazeGame extends Game {
 	public void create () {
 		SCREEN_WIDTH = Gdx.graphics.getWidth();
 		SCREEN_HEIGHT = Gdx.graphics.getHeight();
+		OFFSET = Gdx.graphics.getHeight()/8;
+		ZOOM = 2f;
 		batch = new SpriteBatch();
 
 		System.out.print(Gdx.app.getGraphics().getWidth() + " " + HEIGHT);
