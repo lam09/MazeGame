@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.World;
 import com.lamtuananh.maze.MazeGame;
 import com.lamtuananh.maze.screens.PlayScreen;
@@ -32,6 +33,7 @@ public abstract class Charakter extends Sprite{
     public Vector2 positon;
     public TextureRegion playerStand,playerStandLeft,playerStandRight,playerStandUp,playerStandDown;
     public float sizeScale;
+    protected Fixture fixture;
     public Charakter(PlayScreen screen,Vector2 postion) {
         //initialize default values
         this.screen = screen;
@@ -41,7 +43,13 @@ public abstract class Charakter extends Sprite{
         init();
 
     }
-
+    public Fixture getFixture()
+    {
+        return fixture;
+    }
+    public void setFixture(Fixture fixture){
+        this.fixture = fixture;
+    }
     protected abstract void init();
 
     public TextureRegion getFrame(float dt){

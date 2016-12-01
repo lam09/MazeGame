@@ -95,7 +95,8 @@ public class StoneMonster extends Charakter {
         fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.STONE_BIT
         |MazeGame.FLEXIWALL_BIT;
 
-        b2body.createFixture(fdef).setUserData(this);
+        fixture = b2body.createFixture(fdef);
+        fixture.setUserData(this);
     }
     @Override
     public void update(float delta)

@@ -89,8 +89,8 @@ public class Player extends Charakter {
         fdef.filter.categoryBits = MazeGame.PLAYER_BIT;
         fdef.filter.maskBits =MazeGame.END |
                 MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.STONE_BIT|MazeGame.FLEXIWALL_BIT;
-
-        b2body.createFixture(fdef).setUserData(this);
+        fixture = b2body.createFixture(fdef);
+        fixture.setUserData(this);
     }
 
     public void setPosition(Vector2 position)
