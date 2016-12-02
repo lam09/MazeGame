@@ -123,10 +123,9 @@ public class LoadingScreen implements Screen {
 
         mapLoader = new TmxMapLoader();
         MazeGame.manager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
-        MazeGame.manager.load("maze1.tmx", TiledMap.class);
-        MazeGame.manager.load("maze2.tmx", TiledMap.class);
+
         //MazeGame.manager.load("maze3.tmx", TiledMap.class);
-        MazeGame.manager.load("buttons/up.png", Texture.class);
+     /*   MazeGame.manager.load("buttons/up.png", Texture.class);
         MazeGame.manager.load("buttons/down.png", Texture.class);
         MazeGame.manager.load("buttons/left.png", Texture.class);
         MazeGame.manager.load("buttons/right.png", Texture.class);
@@ -135,8 +134,8 @@ public class LoadingScreen implements Screen {
         MazeGame.manager.load("buttons/leftDown.png", Texture.class);
         MazeGame.manager.load("buttons/rightDown.png", Texture.class);
         MazeGame.manager.load("buttons/attach.png", Texture.class);
-        MazeGame.manager.load("buttons/attachDown.png", Texture.class);
-
+        MazeGame.manager.load("buttons/attachDown.png", Texture.class);*/
+        MazeGame.manager.load("buttons/buttons.atlas",TextureAtlas.class);
         MazeGame.manager.load("tortoise/goDown3.png", Texture.class);
         MazeGame.manager.load("tortoise/goLeft.png", Texture.class);
         MazeGame.manager.load("tortoise/goRight.png", Texture.class);
@@ -146,6 +145,12 @@ public class LoadingScreen implements Screen {
         MazeGame.manager.load("flexiwall.png", Texture.class);
 
         MazeGame.manager.load("sound/background.mp3", Music.class);
+
+        // stage maps load
+        MazeGame.manager.load("maze1.tmx", TiledMap.class);
+        MazeGame.manager.load("maze2.tmx", TiledMap.class);
+        MazeGame.manager.load("maze3.tmx", TiledMap.class);
+        MazeGame.manager.load("maze4.tmx", TiledMap.class);
 
         for(int i = 1 ; i<13; i++)
             MazeGame.manager.load("enemy/stone/"+i+".png", Texture.class);

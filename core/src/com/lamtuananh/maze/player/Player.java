@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
 import com.lamtuananh.maze.MazeGame;
 import com.lamtuananh.maze.screens.PlayScreen;
+import com.lamtuananh.maze.tools.ControlButtons;
 
 /**
  * Created by a.lam.tuan on 2. 11. 2016.
@@ -91,6 +92,32 @@ public class Player extends Charakter {
                 MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.STONE_BIT|MazeGame.FLEXIWALL_BIT;
         fixture = b2body.createFixture(fdef);
         fixture.setUserData(this);
+    }
+
+    @Override
+    protected void movingUpdate(float dt) {
+        super.movingUpdate(dt);
+        velocity = new Vector2(0,0);
+        if(ControlButtons.getInstance().left.isOvered())//||Gdx.input.isKeyPressed(Input.Keys.LEFT))
+        {
+            goLeft();
+        }
+        else
+        if(ControlButtons.getInstance().right.isOvered())//||Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+        {
+            goRight();
+        }
+
+        if(ControlButtons.getInstance().up.isOvered())//||Gdx.input.isKeyPressed(Input.Keys.UP))
+        {
+            goUp();
+        }else
+        if(ControlButtons.getInstance().down.isOvered())//||Gdx.input.isKeyPressed(Input.Keys.DOWN))
+        {
+            goDown();
+        }
+
+      //  velocity = new Vector2(0,0);
     }
 
     public void setPosition(Vector2 position)

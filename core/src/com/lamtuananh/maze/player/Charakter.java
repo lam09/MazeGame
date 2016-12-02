@@ -109,47 +109,39 @@ public abstract class Charakter extends Sprite{
      * @param dt
      */
     public void update(float dt) {
+        movingUpdate(dt);
 
-        if(ControlButtons.getInstance().left.button.isPressed()||Gdx.input.isKeyPressed(Input.Keys.LEFT))
-        {
-            goLeft();
-        }
-        else
-        if(ControlButtons.getInstance().right.button.isPressed()||Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-        {
-            goRight();
-        }
-        else
-        if(ControlButtons.getInstance().up.button.isPressed()||Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            goUp();
-        }
-        else if(ControlButtons.getInstance().down.button.isPressed()||Gdx.input.isKeyPressed(Input.Keys.DOWN)) goDown();
-        else velocity = new Vector2(0,0);
         b2body.setLinearVelocity(velocity);
         setPosition(b2body.getPosition().x - 24 / MazeGame.PPM,b2body.getPosition().y-24 / MazeGame.PPM);
         setRegion(getFrame(dt));
     }
+    protected void movingUpdate(float dt){}
     protected void goUp()
     {
-        velocity = new Vector2(0,speed);
+        //velocity = new Vector2(0,speed);
+        velocity.y = speed;
         currentState = State.GOUP;
     }
     protected void goDown()
     {
-        velocity = new Vector2(0,-speed);
+        //velocity = new Vector2(0,-speed);
+        velocity.y = -speed;
         currentState = State.GODOWN;
 
     }
     protected void goRight()
     {
-        velocity = new Vector2(speed,0);
+        //velocity = new Vector2(speed,0);
+        velocity.x = speed;
         currentState = State.GORIGHT;
     }
     protected void goLeft()
     {
-        velocity = new Vector2(-speed,0);
+        velocity.x = -speed;
+//        velocity = new Vector2(-speed,0);
         currentState = State.GOLEFT;
-    }protected void stand()
+    }
+    protected void stand()
     {
         velocity = new Vector2(0,0);
         currentState = State.STANDING;

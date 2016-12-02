@@ -7,11 +7,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.lamtuananh.maze.screens.LoadingScreen;
 import com.lamtuananh.maze.screens.MenuScreen;
 import com.lamtuananh.maze.screens.PlayScreenManager;
 import com.lamtuananh.maze.screens.PlayScreenStageOne;
+import com.lamtuananh.maze.tools.ControlButtons;
 
 import java.util.Random;
 
@@ -47,6 +49,8 @@ public class MazeGame extends Game {
 	public static AssetManager manager;
 	public static PlayScreenManager mng;
 	public static SoundManager soundManager;
+	public ControlButtons controlButtons;
+
 	@Override
 	public void create () {
 		SCREEN_WIDTH = Gdx.graphics.getWidth();
@@ -62,17 +66,26 @@ public class MazeGame extends Game {
 		skin = new Skin(Gdx.files.internal("loading/uiskin.json"),textureAtlas);
 		loading = new LoadingScreen(this, skin, font);
 		setScreen(loading);
-
+		instance = this;
 
 	}
 	public void finishedLoading()
 	{
 		soundManager = SoundManager.getInstance();
 		soundManager.init();
+
+		skin = new Skin();
+		skin.addRegions(manager.get("buttons/buttons.atlas",TextureAtlas.class));
+		controlButtons = new ControlButtons(new Stage());
 		mng = new PlayScreenManager(this);
 		mng.addScreen(new PlayScreenStageOne(this,"maze1.tmx"));
 		mng.addScreen(new PlayScreenStageOne(this,"maze2.tmx"));
+		mng.addScreen(new PlayScreenStageOne(this,"maze3.tmx"));
+		mng.addScreen(new PlayScreenStageOne(this,"maze4.tmx"));
+
 		mng.setCurrentScreen();
+
+
 
 	}
 

@@ -45,7 +45,6 @@ public class PlayScreen  implements Screen {
     protected Player player;
     public Array<Charakter> enemies = new Array<Charakter>();
    // public Array<Wall> walls = new Array<Wall>();
-    public ControlButtons controlButtons;
     Stage stage;
 
     public Music background;
@@ -67,8 +66,9 @@ public class PlayScreen  implements Screen {
     }
 
     private void initButton() {
-        stage = new Stage();
-        controlButtons = new ControlButtons(stage);
+        //stage = new Stage();
+        //controlButtons = new ControlButtons(stage);
+        stage = ControlButtons.getInstance().getStage();
         Gdx.input.setInputProcessor(stage);
     }
 
