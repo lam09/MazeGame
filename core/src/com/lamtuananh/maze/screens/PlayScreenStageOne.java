@@ -20,8 +20,8 @@ import com.lamtuananh.maze.tools.WorldContactListener;
 public class PlayScreenStageOne extends PlayScreen {
     private Array<InteractionTileObject> walls;// = new Array<Wall>();
 
-    public PlayScreenStageOne(MazeGame game,String mapName) {
-        super(game,mapName);
+    public PlayScreenStageOne(MazeGame game,String mapName,Integer index) {
+        super(game,mapName,index);
     }
 
     @Override
