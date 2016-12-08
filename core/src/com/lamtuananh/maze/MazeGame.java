@@ -12,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.lamtuananh.maze.screens.LoadingScreen;
 import com.lamtuananh.maze.screens.MenuScreen;
 import com.lamtuananh.maze.screens.PlayScreenManager;
-import com.lamtuananh.maze.screens.PlayScreenStageOne;
 import com.lamtuananh.maze.tools.ControlButtons;
 
 import java.util.Random;
@@ -80,11 +79,12 @@ public class MazeGame extends Game {
 		skin.addRegions(manager.get("maintenance.atlas",TextureAtlas.class));
 		controlButtons = new ControlButtons(new Stage());
 		mng = new PlayScreenManager(this);
-		mng.addScreen(new PlayScreenStageOne(this,"maze1.tmx"));
-		mng.addScreen(new PlayScreenStageOne(this,"maze2.tmx"));
-		mng.addScreen(new PlayScreenStageOne(this,"maze3.tmx"));
-		mng.addScreen(new PlayScreenStageOne(this,"maze4.tmx"));
-
+		/*
+		mng.addScreen(new PlayScreenStageOne(this,"maze1.tmx",1));
+		mng.addScreen(new PlayScreenStageOne(this,"maze2.tmx",2));
+		mng.addScreen(new PlayScreenStageOne(this,"maze3.tmx",3));
+		mng.addScreen(new PlayScreenStageOne(this,"maze4.tmx",4));
+*/
 		mng.setCurrentScreen();
 
 

@@ -52,16 +52,21 @@ public class Wall extends InteractionTileObject{
         b2body = world.createBody(bdef);
         shape.setAsBox(rect.getWidth() / 2 / MazeGame.PPM, rect.getHeight() / 2 / MazeGame.PPM);
         fdef.shape = shape;
+        fdef.density = 1000000f;
+        fdef.friction=1f;
+        fdef.restitution = 0f;
         fdef.filter.categoryBits = MazeGame.FLEXIWALL_BIT;
-        fdef.filter.maskBits = MazeGame.GROUND_BIT|MazeGame.STONE_BIT|MazeGame.PLAYER_BIT;
+        fdef.filter.maskBits = MazeGame.FLEXIWALL_BIT| MazeGame.GROUND_BIT|MazeGame.STONE_BIT|MazeGame.PLAYER_BIT;
         fixture = b2body.createFixture(fdef);
         //fixture.setUserData("flexiwall");
         //System.out.print("init walll");
+
     }
 
     @Override
     public void update(float delta) {
         b2body.setLinearVelocity(velocity);
+        b2body.setAngularVelocity(0f);
         position.x = b2body.getPosition().x - rect.getWidth()/MazeGame.PPM/2;
         position.y = b2body.getPosition().y - rect.getHeight()/MazeGame.PPM/2;
         setPosition(position.x,position.y);

@@ -50,8 +50,10 @@ public class B2WorldCreator {
             body = world.createBody(bdef);
             shape.setAsBox(rect.getWidth() / 2 / MazeGame.PPM, rect.getHeight() / 2 / MazeGame.PPM);
             fdef.shape = shape;
+            fdef.density=100000000f;
+            fdef.restitution=1;
             fdef.filter.categoryBits = MazeGame.GROUND_BIT;
-            fdef.filter.maskBits = MazeGame.GROUND_BIT|MazeGame.FLEXIWALL_BIT|MazeGame.STONE_BIT|
+            fdef.filter.maskBits = MazeGame.FLEXIWALL_BIT|MazeGame.STONE_BIT|
                     MazeGame.PLAYER_BIT;
             body.createFixture(fdef);
         }

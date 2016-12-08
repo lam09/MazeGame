@@ -1,5 +1,7 @@
 package com.lamtuananh.maze.player;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -98,21 +100,21 @@ public class Player extends Charakter {
     protected void movingUpdate(float dt) {
         super.movingUpdate(dt);
         velocity = new Vector2(0,0);
-        if(ControlButtons.getInstance().left.isOvered())//||Gdx.input.isKeyPressed(Input.Keys.LEFT))
+        if(ControlButtons.getInstance().left.isOvered()|| Gdx.input.isKeyPressed(Input.Keys.LEFT))
         {
             goLeft();
         }
         else
-        if(ControlButtons.getInstance().right.isOvered())//||Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+        if(ControlButtons.getInstance().right.isOvered()||Gdx.input.isKeyPressed(Input.Keys.RIGHT))
         {
             goRight();
         }
 
-        if(ControlButtons.getInstance().up.isOvered())//||Gdx.input.isKeyPressed(Input.Keys.UP))
+        if(ControlButtons.getInstance().up.isOvered()||Gdx.input.isKeyPressed(Input.Keys.UP))
         {
             goUp();
         }else
-        if(ControlButtons.getInstance().down.isOvered())//||Gdx.input.isKeyPressed(Input.Keys.DOWN))
+        if(ControlButtons.getInstance().down.isOvered()||Gdx.input.isKeyPressed(Input.Keys.DOWN))
         {
             goDown();
         }

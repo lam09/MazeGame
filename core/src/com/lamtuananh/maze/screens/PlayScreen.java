@@ -31,6 +31,7 @@ import com.lamtuananh.maze.tools.ControlButtons;
  */
 public class PlayScreen  implements Screen {
     MazeGame game;
+    public Integer index ;
     protected OrthographicCamera gamecam;
     protected Viewport gamePort;
 
@@ -50,9 +51,9 @@ public class PlayScreen  implements Screen {
     public Music background;
 
     protected String mapName;
-    public PlayScreen(MazeGame game,String mapName){
+    public PlayScreen(MazeGame game,String mapName,Integer index){
         System.out.print("Starting playing screen......");
-
+        this.index=index;
         this.game = game;
         this.mapName = mapName;
         gamecam = new OrthographicCamera();

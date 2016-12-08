@@ -31,6 +31,10 @@ public class WorldContactListener implements ContactListener {
                 System.out.print("flexi hit the stone");
 
                 break;
+            case MazeGame.FLEXIWALL_BIT|MazeGame.PLAYER_BIT:
+                System.out.print("flexi hit the playerrrrrrrrrrrr");
+
+                break;
             case MazeGame.FLEXIWALL_BIT|MazeGame.GROUND_BIT:
                 System.out.print("Heloo wall");
                 if(fixA.getUserData() instanceof InteractionTileObject)
