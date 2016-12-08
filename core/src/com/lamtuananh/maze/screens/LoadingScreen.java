@@ -143,6 +143,8 @@ public class LoadingScreen implements Screen {
         MazeGame.manager.load("enemy/stone/Stone.png", Texture.class);
       //  MazeGame.manager.load("wall.png", Texture.class);
         MazeGame.manager.load("flexiwall.png", Texture.class);
+        MazeGame.manager.load("uiskin.json", Skin.class);
+        MazeGame.manager.load("maintenance.atlas",TextureAtlas.class);
 
         MazeGame.manager.load("sound/background.mp3", Music.class);
 

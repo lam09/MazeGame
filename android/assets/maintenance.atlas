@@ -1,0 +1,201 @@
+
+maintenance.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Blackboard
+  rotate: false
+  xy: 0, 1
+  size: 1325, 901
+  orig: 1325, 901
+  offset: 0, 0
+  index: -1
+Button
+  rotate: false
+  xy: 1327, 814
+  size: 242, 88
+  orig: 242, 88
+  offset: 0, 0
+  index: -1
+ButtonBW
+  rotate: false
+  xy: 1327, 724
+  size: 242, 88
+  orig: 242, 88
+  offset: 0, 0
+  index: -1
+ButtonDown
+  rotate: false
+  xy: 1327, 634
+  size: 242, 88
+  orig: 242, 88
+  offset: 0, 0
+  index: -1
+MinistryOfGame
+  rotate: false
+  xy: 1327, 598
+  size: 258, 34
+  orig: 258, 34
+  offset: 0, 0
+  index: -1
+Speaker00
+  rotate: false
+  xy: 1327, 516
+  size: 107, 80
+  orig: 107, 80
+  offset: 0, 0
+  index: -1
+Speaker01
+  rotate: false
+  xy: 1327, 434
+  size: 107, 80
+  orig: 107, 80
+  offset: 0, 0
+  index: -1
+Speaker02
+  rotate: false
+  xy: 1436, 516
+  size: 107, 80
+  orig: 107, 80
+  offset: 0, 0
+  index: -1
+Speaker03
+  rotate: false
+  xy: 1327, 352
+  size: 107, 80
+  orig: 107, 80
+  offset: 0, 0
+  index: -1
+Speaker04
+  rotate: false
+  xy: 1436, 434
+  size: 107, 80
+  orig: 107, 80
+  offset: 0, 0
+  index: -1
+Speaker05
+  rotate: false
+  xy: 1327, 270
+  size: 107, 80
+  orig: 107, 80
+  offset: 0, 0
+  index: -1
+Speaker06
+  rotate: false
+  xy: 1436, 352
+  size: 107, 80
+  orig: 107, 80
+  offset: 0, 0
+  index: -1
+Bill
+  rotate: false
+  xy: 1327, 215
+  size: 108, 53
+  orig: 108, 53
+  offset: 0, 0
+  index: -1
+BillDown
+  rotate: false
+  xy: 1327, 160
+  size: 108, 53
+  orig: 108, 53
+  offset: 0, 0
+  index: -1
+ArrowD
+  rotate: false
+  xy: 1436, 297
+  size: 46, 53
+  orig: 46, 53
+  offset: 0, 0
+  index: -1
+ArrowDBW
+  rotate: false
+  xy: 1327, 105
+  size: 46, 53
+  orig: 46, 53
+  offset: 0, 0
+  index: -1
+ArrowDDown
+  rotate: false
+  xy: 1484, 297
+  size: 46, 53
+  orig: 46, 53
+  offset: 0, 0
+  index: -1
+ArrowT
+  rotate: false
+  xy: 1327, 50
+  size: 46, 53
+  orig: 46, 53
+  offset: 0, 0
+  index: -1
+ArrowTBW
+  rotate: false
+  xy: 1375, 105
+  size: 46, 53
+  orig: 46, 53
+  offset: 0, 0
+  index: -1
+ArrowTDown
+  rotate: false
+  xy: 1375, 50
+  size: 46, 53
+  orig: 46, 53
+  offset: 0, 0
+  index: -1
+Plus
+  rotate: false
+  xy: 1327, 0
+  size: 50, 48
+  orig: 50, 48
+  offset: 0, 0
+  index: -1
+PlusBW
+  rotate: false
+  xy: 1379, 0
+  size: 50, 48
+  orig: 50, 48
+  offset: 0, 0
+  index: -1
+PlusDown
+  rotate: false
+  xy: 1437, 247
+  size: 50, 48
+  orig: 50, 48
+  offset: 0, 0
+  index: -1
+ServerKO
+  rotate: false
+  xy: 1437, 205
+  size: 49, 40
+  orig: 49, 40
+  offset: 0, 0
+  index: -1
+ServerOK
+  rotate: false
+  xy: 1437, 163
+  size: 49, 40
+  orig: 49, 40
+  offset: 0, 0
+  index: -1
+Minus
+  rotate: false
+  xy: 1489, 277
+  size: 47, 18
+  orig: 47, 18
+  offset: 0, 0
+  index: -1
+MinusBW
+  rotate: false
+  xy: 1489, 257
+  size: 47, 18
+  orig: 47, 18
+  offset: 0, 0
+  index: -1
+MinusDown
+  rotate: false
+  xy: 1489, 237
+  size: 47, 18
+  orig: 47, 18
+  offset: 0, 0
+  index: -1

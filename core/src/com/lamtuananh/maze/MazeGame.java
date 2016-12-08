@@ -75,7 +75,9 @@ public class MazeGame extends Game {
 		soundManager.init();
 
 		skin = new Skin();
+		skin= MazeGame.manager.get("uiskin.json", Skin.class);
 		skin.addRegions(manager.get("buttons/buttons.atlas",TextureAtlas.class));
+		skin.addRegions(manager.get("maintenance.atlas",TextureAtlas.class));
 		controlButtons = new ControlButtons(new Stage());
 		mng = new PlayScreenManager(this);
 		mng.addScreen(new PlayScreenStageOne(this,"maze1.tmx"));
