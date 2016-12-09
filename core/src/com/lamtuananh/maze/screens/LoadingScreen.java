@@ -51,8 +51,11 @@ public class LoadingScreen implements Screen {
     private boolean isInitialLoading = true;
     private float initialLoadingDuration = 10f;
     private boolean useRealLoadingDuration = true;
-
+    Texture background1;
     protected float time = 0;
+
+
+
     public LoadingScreen(final MazeGame game, Skin skin, BitmapFont font) {
         this.game = game;
         this.skin = skin;
@@ -60,9 +63,11 @@ public class LoadingScreen implements Screen {
         instance = this;
 
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, MazeGame.SCREEN_WIDTH*2, MazeGame.SCREEN_HEIGHT*2);
+        camera.setToOrtho(false, MazeGame.SCREEN_WIDTH, MazeGame.SCREEN_HEIGHT);
  //       Viewport viewport = new FitViewport()
         Texture background = new Texture("loading/LoadBG.png");
+         background1 = new Texture("menuBackground.png");
+
         background.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
         BackgroundSprite = new Sprite(background, 0, 0, MazeGame.SCREEN_WIDTH, MazeGame.SCREEN_HEIGHT);
 
@@ -82,9 +87,9 @@ public class LoadingScreen implements Screen {
         barStyle = new ProgressBarStyle(skin.newDrawable("white", Color.WHITE), skin.newDrawable("white", Color.GREEN));
         barStyle.knobBefore = barStyle.knob;
         bar = new ProgressBar(0, 100, 1f, false, barStyle);
-        bar.setPosition(MazeGame.SCREEN_WIDTH/2-MazeGame.SCREEN_WIDTH/4, MazeGame.SCREEN_HEIGHT/2);
-        bar.setSize(MazeGame.SCREEN_WIDTH/2, bar.getPrefHeight());
-        bar.setAnimateDuration(0.001f);
+        bar.setPosition(MazeGame.SCREEN_WIDTH/4, MazeGame.SCREEN_HEIGHT/2);
+        bar.setSize(MazeGame.SCREEN_WIDTH/2, MazeGame.SCREEN_HEIGHT/8);
+        bar.setAnimateDuration(0.01f);
         stage.addActor(bar);
 
         initialAtlas = new TextureAtlas(Gdx.files.internal("loading/initial-loader.atlas"));
@@ -136,6 +141,8 @@ public class LoadingScreen implements Screen {
         MazeGame.manager.load("buttons/attach.png", Texture.class);
         MazeGame.manager.load("buttons/attachDown.png", Texture.class);*/
         MazeGame.manager.load("buttons/buttons.atlas",TextureAtlas.class);
+        MazeGame.manager.load("font/showcard20.fnt",BitmapFont.class);
+
         MazeGame.manager.load("tortoise/goDown3.png", Texture.class);
         MazeGame.manager.load("tortoise/goLeft.png", Texture.class);
         MazeGame.manager.load("tortoise/goRight.png", Texture.class);
@@ -145,9 +152,10 @@ public class LoadingScreen implements Screen {
         MazeGame.manager.load("flexiwall.png", Texture.class);
         MazeGame.manager.load("uiskin.json", Skin.class);
         MazeGame.manager.load("maintenance.atlas",TextureAtlas.class);
-
+        MazeGame.manager.load("menuBackground.png", Texture.class);
+        MazeGame.manager.load("default.fnt",BitmapFont.class);
         MazeGame.manager.load("sound/background.mp3", Music.class);
-
+        MazeGame.manager.load("enemy/a/a.png", Texture.class);
         // stage maps load
         MazeGame.manager.load("maze1.tmx", TiledMap.class);
         MazeGame.manager.load("maze2.tmx", TiledMap.class);
@@ -184,7 +192,8 @@ public class LoadingScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        batch.draw(BackgroundSprite, 0, 0,MazeGame.SCREEN_WIDTH*2,MazeGame.SCREEN_HEIGHT*2);
+        batch.draw(background1, 0, 0,MazeGame.SCREEN_WIDTH,MazeGame.SCREEN_HEIGHT);
+      //  batch.draw(BackgroundSprite, 0, 0,MazeGame.SCREEN_WIDTH*2,MazeGame.SCREEN_HEIGHT*2);
 
        // batch.draw(initialAtlas.findRegion("Logo"), 632, 663);
 
@@ -226,7 +235,7 @@ public class LoadingScreen implements Screen {
             percent = time/duration*100;
         }
 
-        for (int i = 0; i < circles.length; i++) {
+     /*   for (int i = 0; i < circles.length; i++) {
             Sprite circle = circles[i];
             float progress = Math.min(percent/(20*(i + 1)), 1);
             float start = 90;
@@ -237,11 +246,14 @@ public class LoadingScreen implements Screen {
             float rotation = 1.25f;
             circle.setRotation(start + rotation*360*progress);
             circle.draw(batch);
-        }
 
-        int max100percent = Math.min(Math.round(percent), 100);
-        writeToCenter(max100percent+" %", 841, 360);
+        }*/
 
+       // int max100percent = Math.min(Math.round(percent), 100);
+       // writeToCenter(max100percent+" %", 841, 360);
+        bar.act(delta);
+        bar.setValue(percent);
+        bar.draw(batch,1f);
         batch.end();
 
         if (percent >= 100) {

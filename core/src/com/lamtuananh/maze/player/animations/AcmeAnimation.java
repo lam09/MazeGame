@@ -68,7 +68,6 @@ public class AcmeAnimation extends GameAnimation {
 	public void setPossiblePlayModes(PlayMode[] playModes) {
 		this.possiblePlayModes = playModes;
 	}
-	//Rectangle fullArea=new Rectangle(0f,0f,Draw.WIDTH*2,Draw.HEIGHT);
 	@Override
 	public void drawAnimation(SpriteBatch batch, float delta, float x, float y) {
 		TextureRegion frame = animation.getKeyFrame(animationTime);

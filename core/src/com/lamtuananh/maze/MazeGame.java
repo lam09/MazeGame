@@ -37,7 +37,6 @@ public class MazeGame extends Game {
 //loading screen
 	public static LoadingScreen.LoadingStatus doneLoading = LoadingScreen.LoadingStatus.NOT_STARTED;
 	public static LoadingScreen loading;
-	public static MenuScreen menu;
 	public static final Random RANDOM = new Random();
 	public static Skin skin;
 	public static TextureAtlas textureAtlas;
@@ -49,7 +48,7 @@ public class MazeGame extends Game {
 	public static PlayScreenManager mng;
 	public static SoundManager soundManager;
 	public ControlButtons controlButtons;
-
+	public static MenuScreen menu;
 	@Override
 	public void create () {
 		SCREEN_WIDTH = Gdx.graphics.getWidth();
@@ -85,7 +84,9 @@ public class MazeGame extends Game {
 		mng.addScreen(new PlayScreenStageOne(this,"maze3.tmx",3));
 		mng.addScreen(new PlayScreenStageOne(this,"maze4.tmx",4));
 */
-		mng.setCurrentScreen();
+		menu = new MenuScreen();
+		setScreen(menu);
+	//	mng.setCurrentScreen();
 
 
 

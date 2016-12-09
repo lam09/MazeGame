@@ -239,7 +239,6 @@ public class GameAnimation {
 		if(isEnded()&&callback!=null&&!onEndCalled){callback.onEnd();onEndCalled=true;}
 	}
 	boolean onEndCalled=false;
-	//Rectangle fullArea=new Rectangle(0f,0f,Draw.WIDTH*2,Draw.HEIGHT);
 	/**
 	 * Checks if animation already ended.
 	 * @return true for finished animation, false otherwise.
