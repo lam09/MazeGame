@@ -24,8 +24,9 @@ public class WorldContactListener implements ContactListener {
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
         switch (cDef){
             case MazeGame.PLAYER_BIT|MazeGame.STONE_BIT:
-                game.mng.setCurrentScreen();
-                game.mng.resetStage();
+                //game.mng.setCurrentScreen();
+                game.mng.getCurrentScreen().reset();
+                //game.mng.resetStage();
                 break;
             case MazeGame.FLEXIWALL_BIT|MazeGame.STONE_BIT:
                 System.out.print("flexi hit the stone");
@@ -47,7 +48,8 @@ public class WorldContactListener implements ContactListener {
                 }
                 break;
             case MazeGame.PLAYER_BIT|MazeGame.END:
-                MazeGame.mng.setNextScreen();
+                MazeGame.mng.getCurrentScreen().ending();
+
                 break;
 
             default:

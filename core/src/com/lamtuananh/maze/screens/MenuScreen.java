@@ -2,7 +2,6 @@ package com.lamtuananh.maze.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,7 +17,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.lamtuananh.maze.MazeGame;
-import com.lamtuananh.maze.tools.CustomButton;
 
 /**
  * Created by a.lam.tuan on 2. 11. 2016.
@@ -36,7 +34,6 @@ public class MenuScreen implements Screen{
             textButtonStyle.up = skin.getDrawable(up);
             textButtonStyle.down = skin.getDrawable(down);
             textButtonStyle.over = skin.getDrawable(checked);
-            // textButtonStyle.checked = skin.getDrawable(checked);
             textButtonStyle.disabled = skin.getDrawable(disabled);
             button=new Button(textButtonStyle);
             stage.addActor(button);
@@ -104,6 +101,7 @@ public class MenuScreen implements Screen{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                PlayScreenManager.currentScreenIndex = MazeGame.prefs.getInteger("level",1);
                 MazeGame.mng.setNextScreen();
             }
         });

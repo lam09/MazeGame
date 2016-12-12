@@ -2,6 +2,7 @@ package com.lamtuananh.maze;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -49,6 +50,8 @@ public class MazeGame extends Game {
 	public static SoundManager soundManager;
 	public ControlButtons controlButtons;
 	public static MenuScreen menu;
+
+	public static Preferences prefs;
 	@Override
 	public void create () {
 		SCREEN_WIDTH = Gdx.graphics.getWidth();
@@ -56,6 +59,8 @@ public class MazeGame extends Game {
 		OFFSET = Gdx.graphics.getHeight()/8;
 		ZOOM = 2f;
 		batch = new SpriteBatch();
+
+		prefs = Gdx.app.getPreferences("Maze");
 
 		System.out.print(Gdx.app.getGraphics().getWidth() + " " + HEIGHT);
 		manager = new AssetManager();

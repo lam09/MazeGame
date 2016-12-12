@@ -3,9 +3,21 @@
  <tileset firstgid="1" name="tileset_gutter" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924" columns="33">
   <image source="tileset_gutter.png" width="594" height="504"/>
  </tileset>
+ <tileset firstgid="925" name="worldsheet1" tilewidth="16" tileheight="16" spacing="1" margin="1" tilecount="380" columns="20">
+  <image source="worldsheet1.png" width="341" height="324"/>
+ </tileset>
+ <tileset firstgid="1305" name="worltilesheet" tilewidth="16" tileheight="16" spacing="1" margin="1" tilecount="380" columns="20">
+  <image source="worltilesheet.png" width="341" height="324"/>
+ </tileset>
+ <tileset firstgid="1685" name="tileset_gutter - left" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924" columns="33">
+  <image source="tileset_gutter - left.png" width="594" height="504"/>
+ </tileset>
+ <tileset firstgid="2609" name="tileset_gutter - down" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924" columns="33">
+  <image source="tileset_gutter - down.png" width="594" height="504"/>
+ </tileset>
  <layer name="background" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApIBwAGQAAB
+   eJytk0sOwjAMRLtIgEJDgJPzETfgewNAwBmAPdwBTsBUEGFVduumLJ5aO6NJHDupTZIu6IEMOJAyuT7wYACGYCTouFyHyVvQAm1hPeyp0Wi9fE0trVXKU69Ybxr/q06NX9BJ61w+tsag4+bARvhy675k/5nRzyb1KOYX8FmCleCXldTqmHgHnz04mLi71dx9Hc8mfdbUOzc/ffjGnG8Nnw3YmmZvO8/d4fEAR3ACZ3LGMf4nYEr6I/XdfXlC+wIXcAU385m/nKr5KcZVvaXzo6k99t1Kujd5Dy6u
   </data>
  </layer>
  <objectgroup name="wall"/>

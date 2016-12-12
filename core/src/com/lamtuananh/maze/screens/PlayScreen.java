@@ -51,6 +51,9 @@ public class PlayScreen  implements Screen {
     public Music background;
 
     protected String mapName;
+    private boolean isEnd = false;
+    private boolean reseting = false;
+
     public PlayScreen(MazeGame game,String mapName,Integer index){
         System.out.print("Starting playing screen......");
         this.index=index;
@@ -88,10 +91,31 @@ public class PlayScreen  implements Screen {
     public void show() {
 
     }
-
+    float zoom = 2f;
     public void update (float delta){
         world.step(1 / 60f, 6, 2);
         //update our gamecam with correct coordinates after changes
+        if(reseting)
+        {
+            if(zoom<2f)zoom+=0.01f;
+            else MazeGame.mng.setCurrentScreen();
+
+            gamecam.zoom = zoom;
+
+        }
+        else
+        if(!isEnd) {
+            if (zoom > 1f) zoom -= 0.01f;
+            gamecam.zoom = zoom;
+        }
+        else
+        {
+            if(zoom<2f) zoom+=0.01f;
+            else {
+            MazeGame.mng.setNextScreen();
+            }
+            gamecam.zoom = zoom;
+        }
         gamecam.position.set(player.getX(),player.getY(),0);
         gamecam.update();
         //tell our renderer to draw only what our camera can see in our game world.
@@ -172,8 +196,22 @@ public class PlayScreen  implements Screen {
         b2body = world.createBody(bdef);
         shape.setAsBox(rect.getWidth() / 2 / MazeGame.PPM, rect.getHeight() / 2 / MazeGame.PPM);
         fdef.shape = shape;
+        fdef.isSensor = true;
         fdef.filter.categoryBits = MazeGame.END;
         fdef.filter.maskBits = MazeGame.GROUND_BIT|MazeGame.STONE_BIT|MazeGame.PLAYER_BIT;
         b2body.createFixture(fdef);
+    }
+    public void reset(){
+        reseting = true;
+        player.die();
+    }
+    public void ending()
+    {
+        isEnd = true;
+        player.gotoNextScreen();
+    }
+    public Player getPlayer()
+    {
+        return player;
     }
 }
