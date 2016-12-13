@@ -109,16 +109,79 @@ public class StoneMonster extends Charakter {
         if(currentState == State.GORIGHT ) goRight();
         if(currentState == State.GOUP ) goUp();
         if(currentState == State.STANDING ) stand();
-        if(MathUtils.random(0,5000)>4950) {
+        if(MathUtils.random(0,5000)>4550) {
             int i = MathUtils.random(1,5);
+            Vector2 playerPosition = screen.getPlayerPosition();
+            Vector2 positon = new Vector2(this.getX(),this.getY());
+            float distance = (playerPosition.x - positon.x)*(playerPosition.x - positon.x) + (playerPosition.y-positon.y)*(playerPosition.y-positon.y);
+            if(distance>5000){
             if(i==1) goDown();
             if(i==2) goLeft();
             if(i==3) goRight();
             if(i==4) goUp();
             if(i==5) stand();
+            }
+            else
+            {
+                float distanceX = (playerPosition.x - positon.x)*(playerPosition.x - positon.x);
+                float distanceY = (playerPosition.y-positon.y)*(playerPosition.y-positon.y);
+                System.out.println("distance " + distanceX + " " + distanceY);
+                System.out.println("Player position " + playerPosition.x + " " + playerPosition.y);
+                System.out.println("monster position  " + positon.x + " " + positon.y);
+
+                if(distanceX>distanceY)
+                {
+
+                    if(playerPosition.x - positon.x<0) {
+                        goLeft();
+                        System.out.print("go left ");
+                    }
+                    else {
+                        System.out.print("go right");
+                        goRight();
+                    }
+                }
+                else{
+
+                    if (playerPosition.y-positon.y<0) {
+                        System.out.print("go down");
+                        goDown();
+                    }
+                    else{
+                        System.out.print("go up");
+                        goUp();
+                    }
+                }
+            }
+
         }
         b2body.setLinearVelocity(velocity);
         setPosition(b2body.getPosition().x - 24 / MazeGame.PPM,b2body.getPosition().y-24 / MazeGame.PPM);
         setRegion(getFrame(delta));
+    }
+
+    @Override
+    protected void goDown() {
+        super.goDown();
+        velocity.x =0;
+    }
+
+    @Override
+    protected void goLeft() {
+        super.goLeft();
+        velocity.y =0;
+
+    }
+
+    @Override
+    protected void goRight() {
+        super.goRight();
+        velocity.y=0;
+    }
+
+    @Override
+    protected void goUp() {
+        super.goUp();
+        velocity.x = 0;
     }
 }

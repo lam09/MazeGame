@@ -176,4 +176,8 @@ public class PlayScreen  implements Screen {
         fdef.filter.maskBits = MazeGame.GROUND_BIT|MazeGame.STONE_BIT|MazeGame.PLAYER_BIT;
         b2body.createFixture(fdef);
     }
+    public Vector2 getPlayerPosition()
+    {
+        return new Vector2(player.getX(),player.getY());
+    }
 }
