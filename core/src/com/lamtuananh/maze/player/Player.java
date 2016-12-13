@@ -25,6 +25,7 @@ public class Player extends Charakter {
 
     public Player(PlayScreen screen, Vector2 position) {
         super(screen,position);
+
     }
     @Override
     public void init()
@@ -129,7 +130,7 @@ public class Player extends Charakter {
             goDown();
         }
         a-=dt;
-        if(a>0||isEnd)goRight();
+        if(/*a>0||*/isEnd)goRight();
 
         //  velocity = new Vector2(0,0);
     }

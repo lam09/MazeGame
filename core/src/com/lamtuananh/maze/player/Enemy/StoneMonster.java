@@ -114,7 +114,7 @@ public class StoneMonster extends Charakter {
             Vector2 playerPosition = screen.getPlayerPosition();
             Vector2 positon = new Vector2(this.getX(),this.getY());
             float distance = (playerPosition.x - positon.x)*(playerPosition.x - positon.x) + (playerPosition.y-positon.y)*(playerPosition.y-positon.y);
-            if(distance>5000){
+            if(distance>20){
             if(i==1) goDown();
             if(i==2) goLeft();
             if(i==3) goRight();

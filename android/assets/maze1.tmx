@@ -5,7 +5,7 @@
  </tileset>
  <layer name="background" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt10EOgyAURVG6V11pN9ZJBw5so2jg/fYMzsQQI9wEcG2trQAAAAAAAAAAAAAAAAAAAy1vs78DPRLpkUWPLMsAs+dYiR5Ztuv2fPT59A499KhOjywjejhv7ulxtJMeevyCK/vQUb173tbsddJDjzM9zozX45o7zg89avRwnutRXU+Pb8/3xs2eYyV6ZOm5q579T5w9x0r0yKJHFj2y9N5J3V/1+AfWLIseWfTIogcAAAAAAAAAAAAAAABADS/cb+9B
+   eJzt2c1tgzAYgGHISqzUDtEjs3WNrJF7hVJLX5GxBTI1iZ7DI1WgHvCLf5I8hmF4AAAAAAAAAAAAAAAAAAAAwMV9/IPez/hK9LiWOG7f4zH3IF7X45weXzc9evWIY5/rkK7Fe3qc1+OIpc08PsVW9pC2PeI7v4zx1ro1hya5+aHH8R65dai2h8zj3/mhx357zk3p/Y/r0j1zfy506/28VxfX/vValP7O9Ujjvu6Rmx967O9ROtvm9ujanr51Buv9vK+itH/U3vmtHuZHux7JVBjjuHat93/7efse06/1/FjGfqrs/3q075He+VyP0jnY5/NzeqT5sbVe5b4bSf+nR/sesUnuvPR5e6rt8Xq06RH36dw5d9q4rsd5PUqfS+Lcyd1ff5/Y+xlfyZHvd2vnLPOjTQ+/1/anBwAAAAAAAAAAAAAAAAAAvK8fLkeaZw==
   </data>
  </layer>
  <objectgroup name="wall">
@@ -20,11 +20,11 @@
   <object id="14" x="689" y="642" width="317" height="27"/>
   <object id="34" x="1062" y="729" width="70" height="38"/>
   <object id="35" x="1121" y="765"/>
-  <object id="45" x="750" y="736" width="35" height="159"/>
-  <object id="46" x="787" y="768" width="172" height="34"/>
-  <object id="47" x="911" y="673" width="47" height="97"/>
-  <object id="48" x="944" y="806" width="15" height="87"/>
-  <object id="49" x="849" y="866" width="31" height="93"/>
+  <object id="45" x="750" y="736" width="35" height="66"/>
+  <object id="46" x="863" y="768" width="46" height="34"/>
+  <object id="47" x="911" y="673" width="47" height="50"/>
+  <object id="48" x="944" y="828" width="15" height="52"/>
+  <object id="49" x="849" y="866" width="31" height="45"/>
   <object id="55" x="433" y="724" width="209" height="37"/>
   <object id="56" x="438" y="821" width="203" height="33"/>
   <object id="57" x="522" y="759" width="38" height="62"/>
