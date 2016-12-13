@@ -15,8 +15,8 @@ import com.lamtuananh.maze.MazeGame;
 public class PlayScreenManager {
     MazeGame game;
     Array<Screen> screens = new Array<Screen>();
-    Screen currentScreen;
-    int currentScreenIndex;
+    PlayScreen currentScreen = null;
+   public static int currentScreenIndex=0;
     public PlayScreenManager(MazeGame game)
     {
         this.game = game;
@@ -25,6 +25,8 @@ public class PlayScreenManager {
     public void setNextScreen()
     {
         currentScreenIndex++;
+        MazeGame.prefs.putInteger("level",currentScreenIndex);
+        MazeGame.prefs.flush();
         setCurrentScreen();
     }
     public void resetStage()
@@ -35,20 +37,32 @@ public class PlayScreenManager {
     {
 
         switch (currentScreenIndex){
+            case 1:
+                currentScreen = new PlayScreenStageOne(game,"maze1.tmx",1);
+                game.setScreen(currentScreen);
+                break;
             case 2:
-                game.setScreen(new PlayScreenStageOne(game,"maze2.tmx",1));
+                currentScreen = new PlayScreenStageOne(game,"maze2.tmx",1);
+                game.setScreen(currentScreen);
                 break;
             case 3:
-                game.setScreen(new PlayScreenStageOne(game,"maze3.tmx",1));
+                currentScreen = new PlayScreenStageOne(game,"maze3.tmx",1);
+                game.setScreen(currentScreen);
                 break;
             case 4:
-                game.setScreen(new PlayScreenStageOne(game,"maze4.tmx",1));
+                currentScreen = new PlayScreenStageOne(game,"maze4.tmx",1);
+                game.setScreen(currentScreen);
                 break;
             default:
                 game.setScreen(new PlayScreenStageOne(game,"maze1.tmx",1));
                 currentScreenIndex=1;
+                MazeGame.prefs.putInteger("level",currentScreenIndex);
+                MazeGame.prefs.flush();
                 break;
 
         }
+    }
+    public PlayScreen getCurrentScreen(){
+        return currentScreen;
     }
 }

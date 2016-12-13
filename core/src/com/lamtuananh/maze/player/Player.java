@@ -20,7 +20,10 @@ import com.lamtuananh.maze.tools.ControlButtons;
 public class Player extends Charakter {
 
 
-    public Player(PlayScreen screen,Vector2 position) {
+    private boolean isEnd = false;
+    private boolean isDead = false;
+
+    public Player(PlayScreen screen, Vector2 position) {
         super(screen,position);
     }
     @Override
@@ -96,10 +99,17 @@ public class Player extends Charakter {
         fixture.setUserData(this);
     }
 
+    float alpha = 0f;
     @Override
     protected void movingUpdate(float dt) {
         super.movingUpdate(dt);
+        if(isDead) {
+            alpha+=1.0f;
+            setRotation(alpha);
+        }
         velocity = new Vector2(0,0);
+        if(isDead) return;
+
         if(ControlButtons.getInstance().left.isOvered()|| Gdx.input.isKeyPressed(Input.Keys.LEFT))
         {
             goLeft();
@@ -118,8 +128,16 @@ public class Player extends Charakter {
         {
             goDown();
         }
+        a-=dt;
+        if(a>0||isEnd)goRight();
 
-      //  velocity = new Vector2(0,0);
+        //  velocity = new Vector2(0,0);
+    }
+
+    float a = 2.5f;
+    public void gotoNextScreen()
+    {
+        isEnd = true;
     }
 
     public void setPosition(Vector2 position)
@@ -128,5 +146,7 @@ public class Player extends Charakter {
     }
 
 
-
+    public void die() {
+        isDead = true;
+    }
 }
