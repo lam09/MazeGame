@@ -155,7 +155,7 @@ public class LoadingScreen implements Screen {
         MazeGame.manager.load("menuBackground.png", Texture.class);
         MazeGame.manager.load("default.fnt",BitmapFont.class);
         MazeGame.manager.load("sound/background.mp3", Music.class);
-        MazeGame.manager.load("enemy/a/a.png", Texture.class);
+        MazeGame.manager.load("enemy/a/b.png", Texture.class);
         // stage maps load
         MazeGame.manager.load("maze1.tmx", TiledMap.class);
         MazeGame.manager.load("maze2.tmx", TiledMap.class);

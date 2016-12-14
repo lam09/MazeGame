@@ -132,7 +132,7 @@ public class PlayScreen  implements Screen {
     public void render(float delta) {
       // System.out.print( Gdx.app.getGraphics().getWidth() +" " + Gdx.app.getGraphics().getHeight());
                update(delta);
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(255, 255, 255, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(gamecam.combined);
 

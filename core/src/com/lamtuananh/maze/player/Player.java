@@ -35,7 +35,7 @@ public class Player extends Charakter {
         defineCharakter(positon);
         setBounds(0, 0, sizeScale / MazeGame.PPM, sizeScale / MazeGame.PPM);
 
-        speed = MovingSpeed.WALKING;
+        speed = MovingSpeed.PLAYER_WALKING;
 
         Texture goLeftTexture = MazeGame.manager.get("tortoise/goLeft.png", Texture.class);
 
@@ -100,12 +100,13 @@ public class Player extends Charakter {
         fixture.setUserData(this);
     }
 
-    float alpha = 0f;
+    float beta = 0,alpha = 0f;
     @Override
     protected void movingUpdate(float dt) {
         super.movingUpdate(dt);
         if(isDead) {
-            alpha+=1.0f;
+           if(alpha<90) alpha+=1.5f;
+            setOriginCenter();
             setRotation(alpha);
         }
         velocity = new Vector2(0,0);

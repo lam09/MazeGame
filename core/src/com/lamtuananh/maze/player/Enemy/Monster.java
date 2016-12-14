@@ -22,8 +22,8 @@ public class Monster extends StoneMonster {
         defineCharakter(positon);
         setBounds(0, 0, 48 / MazeGame.PPM, 48 / MazeGame.PPM);
         velocity = new Vector2(50,50);
-        speed = MovingSpeed.SLOWING;
-        Texture texture = MazeGame.manager.get("enemy/a/a.png", Texture.class);
+        speed = MovingSpeed.MONSTER_WALKING;
+        Texture texture = MazeGame.manager.get("enemy/a/b.png", Texture.class);
 
         Array<TextureRegion> frameAtlas = new Array<TextureRegion>();
         Array<TextureRegion> frames = new Array<TextureRegion>();

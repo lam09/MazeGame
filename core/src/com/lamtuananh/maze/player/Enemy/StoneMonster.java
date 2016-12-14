@@ -24,9 +24,9 @@ public class StoneMonster extends Charakter {
     @Override
     protected void init() {
         defineCharakter(positon);
-        setBounds(0, 0, 48 / MazeGame.PPM, 48 / MazeGame.PPM);
+        setBounds(0, 0, 42 / MazeGame.PPM, 42 / MazeGame.PPM);
         velocity = new Vector2(50,50);
-        speed = MovingSpeed.SLOWING;
+        speed = MovingSpeed.MONSTER_WALKING;
         //Texture texture = MazeGame.manager.get("enemy/stone/Stone.png", Texture.class);
         Array<TextureRegion> frameAtlas = new Array<TextureRegion>();
         for(int i=1;i<13;i++)
@@ -89,7 +89,7 @@ public class StoneMonster extends Charakter {
         b2body = world.createBody(bdef);
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(24 / MazeGame.PPM);
+        shape.setRadius(16 / MazeGame.PPM);
         fdef.shape = shape;
         fdef.restitution = 0f;
         fdef.density=0f;
@@ -114,7 +114,7 @@ public class StoneMonster extends Charakter {
             Vector2 playerPosition = screen.getPlayerPosition();
             Vector2 positon = new Vector2(this.getX(),this.getY());
             float distance = (playerPosition.x - positon.x)*(playerPosition.x - positon.x) + (playerPosition.y-positon.y)*(playerPosition.y-positon.y);
-            if(distance>20){
+            if(distance>15){
             if(i==1) goDown();
             if(i==2) goLeft();
             if(i==3) goRight();
@@ -125,7 +125,7 @@ public class StoneMonster extends Charakter {
             {
                 float distanceX = (playerPosition.x - positon.x)*(playerPosition.x - positon.x);
                 float distanceY = (playerPosition.y-positon.y)*(playerPosition.y-positon.y);
-                System.out.println("distance " + distanceX + " " + distanceY);
+             //   System.out.println("distance " + distanceX + " " + distanceY);
                 System.out.println("Player position " + playerPosition.x + " " + playerPosition.y);
                 System.out.println("monster position  " + positon.x + " " + positon.y);
 
@@ -161,27 +161,31 @@ public class StoneMonster extends Charakter {
     }
 
     @Override
-    protected void goDown() {
+    protected void goDown() { // downleft
         super.goDown();
-        velocity.x =0;
+        velocity.x =-0;
+        velocity.y =-speed;
     }
 
     @Override
-    protected void goLeft() {
+    protected void goLeft() { // upleft
         super.goLeft();
+        velocity.x =-speed;
         velocity.y =0;
 
     }
 
     @Override
-    protected void goRight() {
+    protected void goRight() { //rightdown
         super.goRight();
-        velocity.y=0;
+        velocity.x =speed;
+        velocity.y =-0;
     }
 
     @Override
-    protected void goUp() {
+    protected void goUp() { //rightup
         super.goUp();
-        velocity.x = 0;
+        velocity.x =0;
+        velocity.y =speed;
     }
 }
