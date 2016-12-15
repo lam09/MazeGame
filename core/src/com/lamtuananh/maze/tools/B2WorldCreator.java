@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.lamtuananh.maze.MazeGame;
+import com.lamtuananh.maze.player.Enemy.BubleMonster;
 import com.lamtuananh.maze.player.Enemy.Monster;
 import com.lamtuananh.maze.player.Enemy.StoneMonster;
 import com.lamtuananh.maze.screens.PlayScreen;
@@ -68,7 +69,7 @@ public class B2WorldCreator {
         }
         for(MapObject object : map.getLayers().get("enemy").getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            screen.enemies.add(new Monster(screen,new Vector2(rect.getX()/MazeGame.PPM,rect.getY()/MazeGame.PPM)));
+            screen.enemies.add(new BubleMonster(screen,new Vector2(rect.getX()/MazeGame.PPM,rect.getY()/MazeGame.PPM)));
         }
     }
 
