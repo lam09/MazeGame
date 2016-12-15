@@ -23,12 +23,12 @@ public class WorldContactListener implements ContactListener {
         Fixture fixB = contact.getFixtureB();
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
         switch (cDef){
-            case MazeGame.PLAYER_BIT|MazeGame.STONE_BIT:
+            case MazeGame.PLAYER_BIT|MazeGame.ENEMY_BIT:
                 //game.mng.setCurrentScreen();
                 game.mng.getCurrentScreen().reset();
                 //game.mng.resetStage();
                 break;
-            case MazeGame.FLEXIWALL_BIT|MazeGame.STONE_BIT:
+            case MazeGame.FLEXIWALL_BIT|MazeGame.ENEMY_BIT:
                 System.out.print("flexi hit the stone");
 
                 break;

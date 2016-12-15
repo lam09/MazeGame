@@ -12,8 +12,6 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.lamtuananh.maze.MazeGame;
 import com.lamtuananh.maze.player.Enemy.BubleMonster;
-import com.lamtuananh.maze.player.Enemy.Monster;
-import com.lamtuananh.maze.player.Enemy.StoneMonster;
 import com.lamtuananh.maze.screens.PlayScreen;
 
 
@@ -55,8 +53,21 @@ public class B2WorldCreator {
             fdef.density=100000000f;
             fdef.restitution=1;
             fdef.filter.categoryBits = MazeGame.GROUND_BIT;
-            fdef.filter.maskBits = MazeGame.FLEXIWALL_BIT|MazeGame.STONE_BIT|
+            fdef.filter.maskBits = MazeGame.FLEXIWALL_BIT|MazeGame.ENEMY_BIT |
                     MazeGame.PLAYER_BIT;
+            body.createFixture(fdef);
+        }
+        for(MapObject object : map.getLayers().get("enemybarie").getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            bdef.type = BodyDef.BodyType.StaticBody;
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / MazeGame.PPM, (rect.getY() + rect.getHeight() / 2) / MazeGame.PPM);
+            body = world.createBody(bdef);
+            shape.setAsBox(rect.getWidth() / 2 / MazeGame.PPM, rect.getHeight() / 2 / MazeGame.PPM);
+            fdef.shape = shape;
+            fdef.density=100000000f;
+            fdef.restitution=1;
+            fdef.filter.categoryBits = MazeGame.ENEMYBARIE_BIT;
+            fdef.filter.maskBits = MazeGame.FLEXIWALL_BIT|MazeGame.ENEMY_BIT ;
             body.createFixture(fdef);
         }
     }

@@ -28,8 +28,10 @@ public class MazeGame extends Game {
 	public static final float PPM = 50;
 	public static final short GROUND_BIT = 1;
 	public static final short PLAYER_BIT = 2;
-	public static final short STONE_BIT = 4;
+	public static final short ENEMY_BIT = 4;
 	public static final short FLEXIWALL_BIT = 8;
+	public static final short ENEMYBARIE_BIT = 32;
+
 	public static final short END = 16;
 
 

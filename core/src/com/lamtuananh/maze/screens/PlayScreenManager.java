@@ -38,7 +38,7 @@ public class PlayScreenManager {
 
         switch (currentScreenIndex){
             case 1:
-                currentScreen = new PlayScreenStageOne(game,"maze1.tmx",1);
+                currentScreen = new PlayScreenStageOne(game,"maze3.tmx",1);
                 game.setScreen(currentScreen);
                 break;
             case 2:
@@ -50,7 +50,7 @@ public class PlayScreenManager {
                 game.setScreen(currentScreen);
                 break;
             case 4:
-                currentScreen = new PlayScreenStageOne(game,"maze4.tmx",1);
+                currentScreen = new PlayScreenStageOne(game,"maze3.tmx",1);
                 game.setScreen(currentScreen);
                 break;
             default:

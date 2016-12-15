@@ -93,9 +93,9 @@ public class StoneMonster extends Charakter {
         fdef.shape = shape;
         fdef.restitution = 0f;
         fdef.density=0f;
-        fdef.filter.categoryBits = MazeGame.STONE_BIT;
-        fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.STONE_BIT
-        |MazeGame.FLEXIWALL_BIT;
+        fdef.filter.categoryBits = MazeGame.ENEMY_BIT;
+        fdef.filter.maskBits = MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.ENEMY_BIT
+        |MazeGame.FLEXIWALL_BIT| MazeGame.ENEMYBARIE_BIT;
 
         fixture = b2body.createFixture(fdef);
         fixture.setUserData(this);

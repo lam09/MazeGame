@@ -95,7 +95,7 @@ public class Player extends Charakter {
         fdef.shape = shape;
         fdef.filter.categoryBits = MazeGame.PLAYER_BIT;
         fdef.filter.maskBits =MazeGame.END |
-                MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.STONE_BIT|MazeGame.FLEXIWALL_BIT;
+                MazeGame.GROUND_BIT | MazeGame.PLAYER_BIT |MazeGame.ENEMY_BIT |MazeGame.FLEXIWALL_BIT;
         fixture = b2body.createFixture(fdef);
         fixture.setUserData(this);
     }

@@ -56,7 +56,7 @@ public class Wall extends InteractionTileObject{
         fdef.friction=1f;
         fdef.restitution = 0f;
         fdef.filter.categoryBits = MazeGame.FLEXIWALL_BIT;
-        fdef.filter.maskBits =  MazeGame.GROUND_BIT|MazeGame.STONE_BIT|MazeGame.PLAYER_BIT;
+        fdef.filter.maskBits =  MazeGame.GROUND_BIT|MazeGame.ENEMY_BIT |MazeGame.PLAYER_BIT;
         fixture = b2body.createFixture(fdef);
         //fixture.setUserData("flexiwall");
         //System.out.print("init walll");
