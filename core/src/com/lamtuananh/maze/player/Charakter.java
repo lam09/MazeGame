@@ -18,7 +18,7 @@ import com.lamtuananh.maze.tools.ControlButtons;
  * Created by a.lam.tuan on 4. 11. 2016.
  */
 public abstract class Charakter extends Sprite{
-    public enum  State{GOLEFT, GORIGHT, GOUP , GODOWN,STANDING,APPEARING,DISAPPEARING};
+    public enum  State{GOLEFT, GORIGHT, GOUP , GODOWN,STANDING,APPEARING,DISAPPEARING,DEAD};
     public State currentState;
     public State previousState;
 
@@ -28,7 +28,7 @@ public abstract class Charakter extends Sprite{
     protected Vector2 velocity;
     public float speed = 0;
 
-    public Animation goLeft,goRight,goUp,goDown;
+    public Animation goLeft,goRight,goUp,goDown,dead    ;
     private float stateTimer;
     public Vector2 positon;
     public TextureRegion playerStand,playerStandLeft,playerStandRight,playerStandUp,playerStandDown;
@@ -69,6 +69,9 @@ public abstract class Charakter extends Sprite{
                 region=goDown.getKeyFrame(stateTimer);
                 break;
             case DISAPPEARING:
+                break;
+            case DEAD:
+                region=dead.getKeyFrame(stateTimer);
                 break;
             case APPEARING:
                 break;

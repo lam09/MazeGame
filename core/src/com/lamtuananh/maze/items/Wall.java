@@ -25,8 +25,8 @@ public class Wall extends InteractionTileObject{
     {
 
         super(screen);
-        if(rect.getWidth()>rect.getHeight()) velocity=new Vector2(0.5f,0);
-        else velocity=new Vector2(0,0.5f);
+        if(rect.getWidth()>rect.getHeight()) velocity=new Vector2(1f,0);
+        else velocity=new Vector2(0,1f);
         this.rect = rect;
         init();
 //        texture = MazeGame.manager.get("wall.png", Texture.class);

@@ -141,6 +141,8 @@ public class LoadingScreen implements Screen {
         MazeGame.manager.load("buttons/attach.png", Texture.class);
         MazeGame.manager.load("buttons/attachDown.png", Texture.class);*/
         MazeGame.manager.load("buttons/buttons.atlas",TextureAtlas.class);
+        MazeGame.manager.load("buttons/circleButton.png",Texture.class);
+
         MazeGame.manager.load("font/showcard20.fnt",BitmapFont.class);
 
         MazeGame.manager.load("tortoise/goDown3.png", Texture.class);

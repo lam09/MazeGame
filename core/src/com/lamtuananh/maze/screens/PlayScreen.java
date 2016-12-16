@@ -5,6 +5,8 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -53,7 +55,7 @@ public class PlayScreen  implements Screen {
     protected String mapName;
     private boolean isEnd = false;
     private boolean reseting = false;
-
+    private Sprite circleButton;
     public PlayScreen(MazeGame game,String mapName,Integer index){
         System.out.print("Starting playing screen......");
         this.index=index;
@@ -67,6 +69,7 @@ public class PlayScreen  implements Screen {
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
         initWorld();
         initButton();
+
     }
 
     private void initButton() {
@@ -74,6 +77,7 @@ public class PlayScreen  implements Screen {
         //controlButtons = new ControlButtons(stage);
         stage = ControlButtons.getInstance().getStage();
         Gdx.input.setInputProcessor(stage);
+        circleButton = new Sprite(MazeGame.manager.get("buttons/circleButton.png",Texture.class));
     }
 
     public void initWorld()
@@ -123,7 +127,7 @@ public class PlayScreen  implements Screen {
 
         //Player moving
         player.update(delta);
-
+       // circleButton.setPosition(player.getX(),player.getY());
         //Enemy update
         for (Charakter charakter: enemies)
             charakter.update(delta);
@@ -132,7 +136,8 @@ public class PlayScreen  implements Screen {
     public void render(float delta) {
       // System.out.print( Gdx.app.getGraphics().getWidth() +" " + Gdx.app.getGraphics().getHeight());
                update(delta);
-        Gdx.gl.glClearColor(0, 85, 255, 1);
+       // map.getLayers().get("background").
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(gamecam.combined);
 
@@ -145,9 +150,10 @@ public class PlayScreen  implements Screen {
         for (Charakter charakter: enemies)
             charakter.draw(game.batch);
         renderItem(game.batch,delta);
+        game.batch.draw(circleButton,player.getPosition().x,player.getPosition().y, 10,10 );
         game.batch.end();
-        stage.act();
-        stage.draw();
+       // stage.act();
+       // stage.draw();
     }
 
     public void renderItem(SpriteBatch batch, float delta) {

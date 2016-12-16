@@ -126,29 +126,29 @@ public class StoneMonster extends Charakter {
                 float distanceX = (playerPosition.x - positon.x)*(playerPosition.x - positon.x);
                 float distanceY = (playerPosition.y-positon.y)*(playerPosition.y-positon.y);
              //   System.out.println("distance " + distanceX + " " + distanceY);
-                System.out.println("Player position " + playerPosition.x + " " + playerPosition.y);
-                System.out.println("monster position  " + positon.x + " " + positon.y);
+               // System.out.println("Player position " + playerPosition.x + " " + playerPosition.y);
+               // System.out.println("monster position  " + positon.x + " " + positon.y);
 
                 if(distanceX>distanceY)
                 {
 
                     if(playerPosition.x - positon.x<0) {
                         goLeft();
-                        System.out.print("go left ");
+                    //    System.out.print("go left ");
                     }
                     else {
-                        System.out.print("go right");
+                     //   System.out.print("go right");
                         goRight();
                     }
                 }
                 else{
 
                     if (playerPosition.y-positon.y<0) {
-                        System.out.print("go down");
+                     //   System.out.print("go down");
                         goDown();
                     }
                     else{
-                        System.out.print("go up");
+                     //   System.out.print("go up");
                         goUp();
                     }
                 }

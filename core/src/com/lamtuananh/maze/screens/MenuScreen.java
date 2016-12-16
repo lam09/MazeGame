@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -69,6 +70,8 @@ public class MenuScreen implements Screen{
     TextureAtlas buttonAtlas;
     CustomButton newGame, continueGame;
  Texture background;
+ Sprite   circleButton = new Sprite(MazeGame.manager.get("buttons/circleButton.png",Texture.class));
+
     public MenuScreen(){
         batch = new SpriteBatch();
         batch = new SpriteBatch();
@@ -105,6 +108,7 @@ public class MenuScreen implements Screen{
                 MazeGame.mng.setNextScreen();
             }
         });
+        circleButton.setBounds(0,0,100/MazeGame.PPM,100/MazeGame.PPM);
     }
 
     @Override
@@ -117,6 +121,7 @@ public class MenuScreen implements Screen{
         serviceStage.act();
         batch.begin();
         batch.draw(background,0,0,MazeGame.SCREEN_WIDTH,MazeGame.SCREEN_HEIGHT);
+       // batch.draw(circleButton,10,10,100,100);
         batch.end();
         serviceStage.draw();
     }

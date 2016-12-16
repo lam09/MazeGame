@@ -73,6 +73,13 @@ public class Player extends Charakter {
         frames3.add(new TextureRegion(goUpTexture,146,0,40,49));
         goUp = new Animation(0.2f,frames3);
         goUp.setPlayMode(Animation.PlayMode.LOOP_REVERSED);
+        Array<TextureRegion> framesdead = new Array<TextureRegion>();
+        framesdead.add(frames.get(0));
+        framesdead.add(frames1.get(0));
+        framesdead.add(frames2.get(0));
+        framesdead.add(frames3.get(0));
+        dead = new Animation(0.1f,framesdead);
+        dead.setPlayMode(Animation.PlayMode.LOOP);
 
         playerStand = new TextureRegion(goLeftTexture, 0, 0, 35, 49);
         playerStandLeft= new TextureRegion(goLeftTexture, 0, 0, 35, 49);
@@ -106,8 +113,8 @@ public class Player extends Charakter {
         super.movingUpdate(dt);
         if(isDead) {
            if(alpha<90) alpha+=1.5f;
-            setOriginCenter();
-            setRotation(alpha);
+           /* setOriginCenter();
+            setRotation(alpha);*/
         }
         velocity = new Vector2(0,0);
         if(isDead) return;
@@ -146,9 +153,18 @@ public class Player extends Charakter {
     {
 
     }
-
+    public Vector2 getPosition()
+    {
+        return new Vector2(b2body.getPosition().x ,b2body.getPosition().y);
+    }
+    @Override
+    public State getState() {
+        if(isDead) return State.DEAD;
+        return super.getState();
+    }
 
     public void die() {
+
         isDead = true;
     }
 }
