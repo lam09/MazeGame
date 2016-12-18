@@ -1,7 +1,5 @@
 package com.lamtuananh.maze.player;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -12,7 +10,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
 import com.lamtuananh.maze.MazeGame;
 import com.lamtuananh.maze.screens.PlayScreen;
-import com.lamtuananh.maze.tools.ControlButtons;
+import com.lamtuananh.maze.tools.CircleButton;
 
 /**
  * Created by a.lam.tuan on 2. 11. 2016.
@@ -118,8 +116,13 @@ public class Player extends Charakter {
         }
         velocity = new Vector2(0,0);
         if(isDead) return;
+        if(CircleButton.getInstance().isUp()) goUp(); else notGoUp();
+        if(CircleButton.getInstance().isDown()) goDown(); else notGoDown();
+        if(CircleButton.getInstance().isLeft()) goLeft(); else notGoLeft();
+        if(CircleButton.getInstance().isRight()) goRight();else notGoRight();
 
-        if(ControlButtons.getInstance().left.isOvered()|| Gdx.input.isKeyPressed(Input.Keys.LEFT))
+
+      /*  if(ControlButtons.getInstance().left.isOvered()|| Gdx.input.isKeyPressed(Input.Keys.LEFT))
         {
             goLeft();
         }
@@ -136,11 +139,24 @@ public class Player extends Charakter {
         if(ControlButtons.getInstance().down.isOvered()||Gdx.input.isKeyPressed(Input.Keys.DOWN))
         {
             goDown();
-        }
+        }*/
         a-=dt;
         if(/*a>0||*/isEnd)goRight();
 
         //  velocity = new Vector2(0,0);
+    }
+
+    private void notGoUp() {
+       // if(velocity.y>0)velocity.y=0;
+    }
+    private void notGoDown() {
+        //if(velocity.y<0)velocity.y=0;
+    }
+    private void notGoLeft() {
+        //if(velocity.x <0) velocity.x = 0;
+    }
+    private void notGoRight() {
+        //if(velocity.x>0) velocity.x = 0;
     }
 
     float a = 2.5f;

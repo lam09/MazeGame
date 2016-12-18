@@ -69,7 +69,6 @@
   <object id="137" x="1139" y="814" width="30" height="146"/>
  </objectgroup>
  <objectgroup name="enemy">
-  <object id="114" x="107" y="925" width="19" height="18"/>
   <object id="116" x="434" y="813" width="20" height="21"/>
   <object id="117" x="390" y="927" width="24" height="14"/>
   <object id="118" x="900" y="697" width="27" height="18"/>

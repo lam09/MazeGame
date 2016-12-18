@@ -8,11 +8,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.lamtuananh.maze.screens.LoadingScreen;
 import com.lamtuananh.maze.screens.MenuScreen;
 import com.lamtuananh.maze.screens.PlayScreenManager;
+import com.lamtuananh.maze.tools.CircleButton;
 import com.lamtuananh.maze.tools.ControlButtons;
 
 import java.util.Random;
@@ -51,6 +54,7 @@ public class MazeGame extends Game {
 	public static PlayScreenManager mng;
 	public static SoundManager soundManager;
 	public ControlButtons controlButtons;
+	public CircleButton circleButton;
 	public static MenuScreen menu;
 
 	public static Preferences prefs;
@@ -59,6 +63,8 @@ public class MazeGame extends Game {
 		SCREEN_WIDTH = Gdx.graphics.getWidth();
 		SCREEN_HEIGHT = Gdx.graphics.getHeight();
 		OFFSET = Gdx.graphics.getHeight()/8;
+		circlePosition =  new Vector2(SCREEN_WIDTH - 250, 100);
+
 		ZOOM = 2f;
 		batch = new SpriteBatch();
 
@@ -74,6 +80,7 @@ public class MazeGame extends Game {
 		instance = this;
 
 	}
+	public static Vector2 circlePosition;
 	public void finishedLoading()
 	{
 		soundManager = SoundManager.getInstance();
@@ -83,7 +90,10 @@ public class MazeGame extends Game {
 		skin= MazeGame.manager.get("uiskin.json", Skin.class);
 		skin.addRegions(manager.get("buttons/buttons.atlas",TextureAtlas.class));
 		skin.addRegions(manager.get("maintenance.atlas",TextureAtlas.class));
+		TextureRegion region = new TextureRegion(manager.get("buttons/circleButton.png",Texture.class));
+		skin.add("circleButton",region);
 		controlButtons = new ControlButtons(new Stage());
+		circleButton = new CircleButton(circlePosition);
 		mng = new PlayScreenManager(this);
 		/*
 		mng.addScreen(new PlayScreenStageOne(this,"maze1.tmx",1));

@@ -1,10 +1,6 @@
 package com.lamtuananh.maze.tools;
 
-import com.badlogic.gdx.Gdx;
-
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-
 import com.lamtuananh.maze.MazeGame;
 
 /**
@@ -12,10 +8,11 @@ import com.lamtuananh.maze.MazeGame;
  */
 public class ControlButtons {
     static ControlButtons instance= null;
-    float sizeX = Gdx.app.getGraphics().getWidth()/10;
-    float sizeY = Gdx.app.getGraphics().getHeight()/5;
+   // float sizeX = Gdx.app.getGraphics().getWidth()/10;
+  //  float sizeY = Gdx.app.getGraphics().getHeight()/5;
+    float sizeX = 100,sizeY=100;
 
-    public CustomButton up,down,left,right,attach;
+    public CustomButton up,down,left,right,attach, circle;
     Stage stage;
 
     public ControlButtons ( Stage stage)
@@ -32,7 +29,7 @@ public class ControlButtons {
         return stage;
     }
     private void initButtons() {
-        up = new CustomButton(stage, "up","upDown");
+  /*      up = new CustomButton(stage, "up","upDown");
         down = new CustomButton(stage,"down","downDown");
         left= new CustomButton(stage, "left","leftDown");
         right = new CustomButton(stage,"right","rightDown" );
@@ -47,7 +44,9 @@ public class ControlButtons {
         right.button.setPosition((Gdx.app.getGraphics().getWidth()-sizeX-MazeGame.OFFSET),sizeY+MazeGame.OFFSET-0.50f*sizeY);
 
         attach.button.setPosition(1.5f*MazeGame.OFFSET,1.5f*MazeGame.OFFSET);
-
+*/
+        circle = new CustomButton(stage,"circleButton","circleButton");
+        circle.button.setPosition(MazeGame.circlePosition.x,MazeGame.circlePosition.y);
     }
 
 }

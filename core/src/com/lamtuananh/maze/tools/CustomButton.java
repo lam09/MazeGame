@@ -13,8 +13,9 @@ import com.lamtuananh.maze.MazeGame;
  */
 public class CustomButton
 {
-    float sizeX = Gdx.app.getGraphics().getWidth()/10;
-    float sizeY = Gdx.app.getGraphics().getHeight()/5;
+ //   float sizeX = Gdx.app.getGraphics().getWidth()/10;
+ //   float sizeY = Gdx.app.getGraphics().getHeight()/5;
+    float sizeX = 100,sizeY=100;
 
     public Button button;
     public Rectangle rect;

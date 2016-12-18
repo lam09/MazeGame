@@ -78,6 +78,7 @@ public class PlayScreen  implements Screen {
         stage = ControlButtons.getInstance().getStage();
         Gdx.input.setInputProcessor(stage);
         circleButton = new Sprite(MazeGame.manager.get("buttons/circleButton.png",Texture.class));
+        circleButton.scale(1/MazeGame.PPM);
     }
 
     public void initWorld()
@@ -104,13 +105,13 @@ public class PlayScreen  implements Screen {
             if(zoom<2f)zoom+=0.01f;
             else MazeGame.mng.setCurrentScreen();
 
-            gamecam.zoom = zoom;
+           // gamecam.zoom = zoom;
 
         }
         else
         if(!isEnd) {
             if (zoom > 1f) zoom -= 0.01f;
-            gamecam.zoom = zoom;
+           // gamecam.zoom = zoom;
         }
         else
         {
@@ -118,7 +119,7 @@ public class PlayScreen  implements Screen {
             else {
             MazeGame.mng.setNextScreen();
             }
-            gamecam.zoom = zoom;
+           // gamecam.zoom = zoom;
         }
         gamecam.position.set(player.getX(),player.getY(),0);
         gamecam.update();
@@ -150,10 +151,12 @@ public class PlayScreen  implements Screen {
         for (Charakter charakter: enemies)
             charakter.draw(game.batch);
         renderItem(game.batch,delta);
-        game.batch.draw(circleButton,player.getPosition().x,player.getPosition().y, 10,10 );
+//        game.batch.draw(circleButton,player.getPosition().x,player.getPosition().y, 10,10 );
+        game.batch.draw(circleButton,player.getPosition().x,player.getPosition().y, 1,1 );
+
         game.batch.end();
-       // stage.act();
-       // stage.draw();
+        stage.act();
+        stage.draw();
     }
 
     public void renderItem(SpriteBatch batch, float delta) {
